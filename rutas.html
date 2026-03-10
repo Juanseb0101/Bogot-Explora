@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bogotá Explora | Rutas Turísticas</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/i18next@23.10.1/i18next.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="site-header scrolled">
+        <div class="container header-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="assets/images/Front/logo.jpg" alt="Bogotá Explora" class="logo-img"
+                        onerror="this.src='https://via.placeholder.com/150x50?text=Bogot%C3%A1+Explora';">
+                </a>
+            </div>
+
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="rutas.html" data-i18n="nav.routes">Rutas Turísticas</a></li>
+                    <li><a href="experiencias.html" data-i18n="nav.experiences">Experiencias Culturales</a></li>
+                    <li><a href="gastronomia.html" data-i18n="nav.gastronomy">Gastronomía Bogotana</a></li>
+                    <li><a href="eventos.html" data-i18n="nav.events">Eventos y Comunidad</a></li>
+                    <li><a href="calendario.html" data-i18n="nav.calendar">Calendario</a></li>
+                    <li><a href="mapa.html" data-i18n="nav.map" class="nav-map-btn">Mapa</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-tools">
+                <div class="lang-switcher">
+                    <select id="lang-selector" aria-label="Cambiar idioma">
+                        <option value="es">ES</option>
+                        <option value="en">EN</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="page-content">
+        <!-- Small Hero Section -->
+        <section class="page-hero">
+            <div class="container">
+                <h1 class="page-title">Rutas Turísticas</h1>
+                <p class="page-subtitle">Explora los caminos que cuentan la historia viva de nuestra ciudad.</p>
+            </div>
+        </section>
+
+        <!-- Subsections -->
+        <section class="experiences-section container">
+            <h2>Rutas Históricas</h2>
+            <div class="grid-3">
+                <article class="card" data-id="monserrate" style="cursor: pointer;">
+                    <img src="assets/images/Rutas/Monserrate1.jpg" alt="Monserrate">
+                    <div class="card-content">
+                        <h3>Subida a Monserrate</h3>
+                        <p>El símbolo indiscutible de Bogotá. A 3.152 metros de altura te espera una vista panorámica de
+                            360° de la ciudad, la Basílica del Señor Caído y un ambiente espiritual único. Es el plan
+                            que todos los bogotanos y visitantes deben vivir al menos una vez.</p>
+                        <span class="info">Duración: 3 horas</span>
+                    </div>
+                </article>
+                <article class="card" data-id="candelaria" style="cursor: pointer;">
+                    <img src="assets/images/Rutas/LaCandelaria.jpg" alt="La Candelaria">
+                    <div class="card-content">
+                        <h3>Caminata por La Candelaria</h3>
+                        <p>El corazón colonial y bohemio de Bogotá. Calles empedradas, murales, casas coloridas, plazas
+                            históricas y el ambiente artístico más vibrante de la ciudad. Es como caminar por un museo
+                            vivo al aire libre.</p>
+                        <span class="info">Duración: 2.5 horas</span>
+                    </div>
+                </article>
+                <article class="card" data-id="dorada" style="cursor: pointer;">
+                    <img src="assets/images/Rutas/MuseodelOro.jpg" alt="Museo del Oro">
+                    <div class="card-content">
+                        <h3>Museo del Oro</h3>
+                        <p>El museo más importante de América en orfebrería precolombina. Más de 55.000 piezas de oro
+                            puro que cuentan la historia de las culturas muisca, quimbaya y tayrona. Es una experiencia
+                            que te deja con la boca abierta.</p>
+                        <span class="info">Duración: 4 horas</span>
+                    </div>
+                </article>
+            </div>
+
+            <h2>Rutas Alternativas</h2>
+            <div class="grid-3">
+                <article class="card" data-id="graffiti" style="cursor: pointer;">
+                    <img src="assets/images/Rutas/Tour.png" alt="Graffiti Tour">
+                    <div class="card-content">
+                        <h3>Graffiti Tour Centro</h3>
+                        <p>Un recorrido por el mayor museo de arte urbano de Colombia. Murales gigantes, historia
+                            política y social contada a través del grafiti. Es color, mensaje y la Bogotá más
+                            contemporánea.</p>
+                        <span class="info">Duración: 2 horas</span>
+                    </div>
+                </article>
+                <!-- Omitted 2 cards for brevity, to be generated by JS or just HTML structure -->
+                <article class="card" data-id="usaquen" style="cursor: pointer;">
+                    <img src="assets/images/Rutas/Usaquen.jpg" alt="Usaquén">
+                    <div class="card-content">
+                        <h3>Tarde en Usaquén</h3>
+                        <p>El barrio más encantador del norte. Domingos se transforma en el famoso Mercado de las Pulgas
+                            de Usaquén: artesanías, antigüedades, comida callejera y ambiente familiar.</p>
+                        <span class="info">Duración: 3 horas</span>
+                    </div>
+                </article>
+                <article class="card" data-id="mercados" style="cursor: pointer;">
+                    <img src="assets/images/Rutas/Mercado.jpg" alt="Paloquemao">
+                    <div class="card-content">
+                        <h3>Mercados de Bogotá</h3>
+                        <p>El corazón gastronómico de la ciudad. El mercado más grande y colorido de Colombia: frutas
+                            exóticas, flores, hierbas, carnes, mariscos y el famoso “mercado de las flores”.</p>
+                        <span class="info">Duración: 3.5 horas</span>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Map Section -->
+        <section class="map-section container">
+            <h2>Mapa de Rutas</h2>
+            <div id="routes-map" style="height: 400px; border-radius: 12px; margin-top:2rem;"></div>
+        </section>
+    </main>
+
+    <!-- Route Details Modal (9:16 format) -->
+    <div id="route-details-modal" class="route-modal-overlay">
+        <div class="route-modal-content">
+            <button class="route-modal-close" aria-label="Cerrar modal">&times;</button>
+            <div class="route-modal-hero">
+                <img id="rm-img" src="" alt="Route Image">
+                <div class="route-modal-hero-overlay"></div>
+            </div>
+            <div class="route-modal-body">
+                <h3 id="rm-title">Título de la Ruta</h3>
+                <p id="rm-desc" class="route-modal-desc">Descripción de la ruta...</p>
+                <div class="route-modal-info">
+                    <div class="info-item"><strong>Duración:</strong> <span id="rm-duration"></span></div>
+                    <div class="info-item"><strong>Precio:</strong> <span id="rm-price"></span></div>
+                    <div class="info-item"><strong>Para participar:</strong> <span id="rm-howto"></span></div>
+                </div>
+                <div class="route-modal-recommendations">
+                    <strong>Recomendaciones:</strong>
+                    <p id="rm-recs"></p>
+                </div>
+                <button id="rm-btn-map" class="btn btn-full btn-map">Ver en Mapa</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Map Leaflet Modal -->
+    <div id="route-map-modal" class="route-modal-overlay route-map-overlay">
+        <div class="route-modal-content map-modal-content">
+            <button class="route-modal-close alt-close" aria-label="Cerrar mapa">&times;</button>
+            <h3 id="rm-map-title" class="map-modal-title">Ubicación</h3>
+            <div id="rm-leaflet-map" style="width:100%; height:400px; border-radius:8px;"></div>
+            <button id="rm-btn-back" class="btn btn-outline" style="margin-top: 1rem; width: 100%;">Volver a
+                detalles</button>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/map.js"></script>
+    <script src="js/rutas-modals.js"></script>
+</body>
+
+</html>

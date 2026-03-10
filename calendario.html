@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bogotá Explora | Calendario de Eventos</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://unpkg.com/i18next@23.10.1/i18next.min.js"></script>
+</head>
+
+<body>
+    <header class="site-header scrolled">
+        <div class="container header-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="assets/images/logo.jpg" alt="Bogotá Explora" class="logo-img"
+                        onerror="this.src='https://via.placeholder.com/150x50?text=Bogot%C3%A1+Explora';">
+                </a>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="rutas.html" data-i18n="nav.routes">Rutas Turísticas</a></li>
+                    <li><a href="experiencias.html" data-i18n="nav.experiences">Experiencias Culturales</a></li>
+                    <li><a href="gastronomia.html" data-i18n="nav.gastronomy">Gastronomía Bogotana</a></li>
+                    <li><a href="eventos.html" data-i18n="nav.events">Eventos y Comunidad</a></li>
+                    <li><a href="calendario.html" data-i18n="nav.calendar">Calendario</a></li>
+                    <li><a href="mapa.html" data-i18n="nav.map" class="nav-map-btn">Mapa</a></li>
+                </ul>
+            </nav>
+            <div class="header-tools">
+                <div class="lang-switcher">
+                    <select id="lang-selector">
+                        <option value="es">ES</option>
+                        <option value="en">EN</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="page-content">
+        <section class="page-hero">
+            <div class="container">
+                <h1 class="page-title">Encuentra Eventos en tu Visita</h1>
+                <p class="page-subtitle">Selecciona las fechas de tu viaje y descubre qué hacer en Bogotá.</p>
+            </div>
+        </section>
+
+        <section class="experiences-section container">
+            <div class="calendar-widget">
+                <label for="date-range">Selecciona tu rango de fechas (Check-in a Check-out)</label>
+                <input type="text" id="date-range" placeholder="Seleccionar fechas..." readonly>
+                <button id="btn-suggest-events" class="btn btn-primary" style="width: 100%;">Sugerir eventos para mis
+                    fechas</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal for Suggestions -->
+    <div class="modal-overlay" id="suggestions-modal">
+        <div class="modal-content">
+            <button class="modal-close" id="close-modal">&times;</button>
+            <h2 style="text-align:left; font-size:2rem; margin-bottom:1rem; color:var(--color-primary);">Eventos
+                Sugeridos</h2>
+            <div id="suggestions-list">
+                <!-- Injected via JS -->
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://npmcdn.com/flatpickr/dist/l10n/es.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/calendar.js"></script>
+</body>
+
+</html>

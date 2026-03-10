@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bogotá Explora | Mapa de la Ciudad</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/i18next@23.10.1/i18next.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <style>
+        .full-map {
+            width: 100%;
+            height: calc(100vh - var(--header-height));
+            margin-top: var(--header-height);
+        }
+    </style>
+</head>
+
+<body>
+    <header class="site-header scrolled">
+        <div class="container header-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="assets/images/logo.jpg" alt="Bogotá Explora" class="logo-img"
+                        onerror="this.src='https://via.placeholder.com/150x50?text=Bogot%C3%A1+Explora';">
+                </a>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="rutas.html" data-i18n="nav.routes">Rutas Turísticas</a></li>
+                    <li><a href="experiencias.html" data-i18n="nav.experiences">Experiencias Culturales</a></li>
+                    <li><a href="gastronomia.html" data-i18n="nav.gastronomy">Gastronomía Bogotana</a></li>
+                    <li><a href="eventos.html" data-i18n="nav.events">Eventos y Comunidad</a></li>
+                    <li><a href="calendario.html" data-i18n="nav.calendar">Calendario</a></li>
+                    <li><a href="mapa.html" data-i18n="nav.map" class="nav-map-btn"
+                            style="color:var(--color-accent);">Mapa</a></li>
+                </ul>
+            </nav>
+            <div class="header-tools">
+                <div class="lang-switcher">
+                    <select id="lang-selector">
+                        <option value="es">ES</option>
+                        <option value="en">EN</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div id="city-map" class="full-map"></div>
+    </main>
+
+    <script src="js/main.js"></script>
+    <script src="js/map.js"></script>
+</body>
+
+</html>

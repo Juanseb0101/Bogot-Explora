@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bogotá Explora | Gastronomía Bogotana</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://unpkg.com/i18next@23.10.1/i18next.min.js"></script>
+</head>
+
+<body>
+    <header class="site-header scrolled">
+        <div class="container header-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="assets/images/logo.jpg" alt="Bogotá Explora" class="logo-img"
+                        onerror="this.src='https://via.placeholder.com/150x50?text=Bogot%C3%A1+Explora';">
+                </a>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="rutas.html" data-i18n="nav.routes">Rutas Turísticas</a></li>
+                    <li><a href="experiencias.html" data-i18n="nav.experiences">Experiencias Culturales</a></li>
+                    <li><a href="gastronomia.html" data-i18n="nav.gastronomy">Gastronomía Bogotana</a></li>
+                    <li><a href="eventos.html" data-i18n="nav.events">Eventos y Comunidad</a></li>
+                    <li><a href="calendario.html" data-i18n="nav.calendar">Calendario</a></li>
+                    <li><a href="mapa.html" data-i18n="nav.map" class="nav-map-btn">Mapa</a></li>
+                </ul>
+            </nav>
+            <div class="header-tools">
+                <div class="lang-switcher">
+                    <select id="lang-selector">
+                        <option value="es">ES</option>
+                        <option value="en">EN</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="page-content">
+        <section class="page-hero">
+            <div class="container">
+                <h1 class="page-title">Gastronomía Bogotana</h1>
+                <p class="page-subtitle">Los sabores que definen a Bogotá, desde la comida de calle hasta la alta
+                    cocina.</p>
+            </div>
+        </section>
+
+        <section class="experiences-section container">
+            <h2>Platos Típicos</h2>
+            <div class="grid-3">
+                <article class="card">
+                    <img src="https://via.placeholder.com/400x300?text=Ajiaco" alt="Ajiaco">
+                    <div class="card-content">
+                        <h3>Ajiaco Santafereño</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut
+                            labore et dolore magna.</p>
+                        <span class="info">Imprescindible</span>
+                    </div>
+                </article>
+                <article class="card">
+                    <img src="https://via.placeholder.com/400x300?text=Tamal" alt="Tamal con Chocolate">
+                    <div class="card-content">
+                        <h3>Tamal con Chocolate</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut
+                            labore et dolore magna.</p>
+                        <span class="info">Desayuno Clásico</span>
+                    </div>
+                </article>
+                <article class="card">
+                    <img src="https://via.placeholder.com/400x300?text=Oblea" alt="Obleas">
+                    <div class="card-content">
+                        <h3>Obleas en el Centro</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut
+                            labore et dolore magna.</p>
+                        <span class="info">Postre de Calle</span>
+                    </div>
+                </article>
+            </div>
+
+            <h2>Zonas Gastronómicas</h2>
+            <div class="grid-3">
+                <article class="card">
+                    <img src="https://via.placeholder.com/400x300?text=Zona+G" alt="Zona G">
+                    <div class="card-content">
+                        <h3>Zona G</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod.</p>
+                        <span class="info">Alta Cocina</span>
+                    </div>
+                </article>
+                <article class="card">
+                    <img src="https://via.placeholder.com/400x300?text=Macarena" alt="La Macarena">
+                    <div class="card-content">
+                        <h3>La Macarena</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod.</p>
+                        <span class="info">Bohemio y Gourmet</span>
+                    </div>
+                </article>
+                <article class="card">
+                    <img src="https://via.placeholder.com/400x300?text=Plazas+de+Mercado" alt="Plazas de Mercado">
+                    <div class="card-content">
+                        <h3>Plazas de Mercado</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod.</p>
+                        <span class="info">Autenticidad pura</span>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

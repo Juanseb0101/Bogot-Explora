@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bogotá Explora | Inicio</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Libraries CDN -->
+    <script src="https://unpkg.com/i18next@23.10.1/i18next.min.js"></script>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container header-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="assets/images/Front/logo.jpg" alt="Bogotá Explora" class="logo-img">
+                </a>
+            </div>
+
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="rutas.html" data-i18n="nav.routes">Rutas Turísticas</a></li>
+                    <li><a href="experiencias.html" data-i18n="nav.experiences">Experiencias Culturales</a></li>
+                    <li><a href="gastronomia.html" data-i18n="nav.gastronomy">Gastronomía Bogotana</a></li>
+                    <li><a href="eventos.html" data-i18n="nav.events">Eventos y Comunidad</a></li>
+                    <li><a href="calendario.html" data-i18n="nav.calendar">Calendario</a></li>
+                    <li><a href="mapa.html" data-i18n="nav.map" class="nav-map-btn">Mapa</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-tools">
+                <div class="city-info">
+                    <span class="city-name">Bogotá, Colombia</span>
+                    <span id="current-time" class="time"></span>
+                    <span id="current-temp" class="temp"></span>
+                </div>
+                <div class="lang-switcher">
+                    <select id="lang-selector" aria-label="Cambiar idioma">
+                        <option value="es">ES</option>
+                        <option value="en">EN</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section Asymmetrical Layout -->
+        <section class="hero asymmetric">
+            <div class="container hero-container">
+                <div class="hero-content">
+                    <h2 class="subtitle" data-i18n="hero.subtitle">EXPLORA, VIVE, REGRESA</h2>
+                    <h1 class="title" data-i18n="hero.title">Descubriendo Bogotá: experiencias auténticas que
+                        transforman viajes</h1>
+
+                    <div class="stats-box">
+                        <p data-i18n="hero.stats">+1.9 Millones de visitantes internacionales en 2025 • 56% por cultura
+                            y gastronomía • Principal destino urbano de Sudamérica</p>
+                    </div>
+
+                    <a href="rutas.html" class="btn btn-primary" data-i18n="hero.btn">Comienza tu aventura en Bogotá
+                        &rarr;</a>
+                </div>
+
+                <div class="hero-image-wrapper">
+                    <img src="assets/images/Front/ImagenFront.jpg" alt="Bogotá Explorando la ciudad" class="hero-image">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- JS -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>
