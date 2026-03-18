@@ -15,7 +15,7 @@
         <div class="container header-container">
             <div class="logo">
                 <a href="index.html">
-                    <img src="assets/images/logo.jpg" alt="Bogotá Explora" class="logo-img"
+                    <img src="assets/images/Front/logo.jpg" alt="Bogotá Explora" class="logo-img"
                         onerror="this.src='https://via.placeholder.com/150x50?text=Bogot%C3%A1+Explora';">
                 </a>
             </div>
@@ -43,16 +43,16 @@
     <main class="page-content">
         <section class="page-hero">
             <div class="container">
-                <h1 class="page-title">Encuentra Eventos en tu Visita</h1>
-                <p class="page-subtitle">Selecciona las fechas de tu viaje y descubre qué hacer en Bogotá.</p>
+                <h1 class="page-title" data-i18n="cal.page.title">Encuentra Eventos en tu Visita</h1>
+                <p class="page-subtitle" data-i18n="cal.page.subtitle">Selecciona las fechas de tu viaje y descubre qué hacer en Bogotá.</p>
             </div>
         </section>
 
         <section class="experiences-section container">
             <div class="calendar-widget">
-                <label for="date-range">Selecciona tu rango de fechas (Check-in a Check-out)</label>
-                <input type="text" id="date-range" placeholder="Seleccionar fechas..." readonly>
-                <button id="btn-suggest-events" class="btn btn-primary" style="width: 100%;">Sugerir eventos para mis
+                <label for="date-range" data-i18n="cal.label">Selecciona tu rango de fechas (Check-in a Check-out)</label>
+                <input type="text" id="date-range" data-i18n-placeholder="cal.placeholder" placeholder="Seleccionar fechas..." readonly>
+                <button id="btn-suggest-events" class="btn btn-primary" style="width: 100%;" data-i18n="cal.btn">Sugerir eventos para mis
                     fechas</button>
             </div>
         </section>
@@ -62,7 +62,7 @@
     <div class="modal-overlay" id="suggestions-modal">
         <div class="modal-content">
             <button class="modal-close" id="close-modal">&times;</button>
-            <h2 style="text-align:left; font-size:2rem; margin-bottom:1rem; color:var(--color-primary);">Eventos
+            <h2 style="text-align:left; font-size:2rem; margin-bottom:1rem; color:var(--color-primary);" data-i18n="cal.modal.title">Eventos
                 Sugeridos</h2>
             <div id="suggestions-list">
                 <!-- Injected via JS -->
@@ -72,6 +72,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script src="https://npmcdn.com/flatpickr/dist/l10n/es.js"></script>
+    <script src="js/translations.js"></script>
     <script src="js/main.js"></script>
     <script src="js/calendar.js"></script>
 </body>

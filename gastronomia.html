@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bogotá Explora | Gastronomía Bogotana</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <script src="https://unpkg.com/i18next@23.10.1/i18next.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 </head>
 
 <body>
@@ -14,7 +16,7 @@
         <div class="container header-container">
             <div class="logo">
                 <a href="index.html">
-                    <img src="assets/images/logo.jpg" alt="Bogotá Explora" class="logo-img"
+                    <img src="assets/images/Front/logo.jpg" alt="Bogotá Explora" class="logo-img"
                         onerror="this.src='https://via.placeholder.com/150x50?text=Bogot%C3%A1+Explora';">
                 </a>
             </div>
@@ -42,74 +44,132 @@
     <main class="page-content">
         <section class="page-hero">
             <div class="container">
-                <h1 class="page-title">Gastronomía Bogotana</h1>
-                <p class="page-subtitle">Los sabores que definen a Bogotá, desde la comida de calle hasta la alta
+                <h1 class="page-title" data-i18n="gastro.page.title">Gastronomía Bogotana</h1>
+                <p class="page-subtitle" data-i18n="gastro.page.subtitle">Los sabores que definen a Bogotá, desde la comida de calle hasta la alta
                     cocina.</p>
             </div>
         </section>
 
         <section class="experiences-section container">
-            <h2>Platos Típicos</h2>
+            <h2 data-i18n="gastro.h2.tipicos">Platos Típicos</h2>
             <div class="grid-3">
-                <article class="card">
-                    <img src="https://via.placeholder.com/400x300?text=Ajiaco" alt="Ajiaco">
+                <article class="card" data-id="ajiaco" style="cursor: pointer;">
+                    <img src="assets/images/Gastronomia/Ajiaco.jpg" alt="Ajiaco">
                     <div class="card-content">
-                        <h3>Ajiaco Santafereño</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut
-                            labore et dolore magna.</p>
-                        <span class="info">Imprescindible</span>
+                        <h3 data-i18n="gastro.ajiaco.title">Ajiaco Santafereño</h3>
+                        <p data-i18n="gastro.ajiaco.shortDesc">El ajiaco bogotano o santafereño es una sopa típica y tradicional de la región de Bogotá,
+                            Cundinamarca, Colombia,​a base de pollo y diferentes clases de papa.</p>
+                        <span class="info"><span data-i18n="modal.duration">Duración:</span> <span data-i18n="gastro.ajiaco.duration">1.5 horas</span></span>
                     </div>
                 </article>
-                <article class="card">
-                    <img src="https://via.placeholder.com/400x300?text=Tamal" alt="Tamal con Chocolate">
+                <article class="card" data-id="tamal" style="cursor: pointer;">
+                    <img src="assets/images/Gastronomia/Tamal.jpg   " alt="Tamal con Chocolate">
                     <div class="card-content">
-                        <h3>Tamal con Chocolate</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut
-                            labore et dolore magna.</p>
-                        <span class="info">Desayuno Clásico</span>
+                        <h3 data-i18n="gastro.tamal.title">Tamal con Chocolate</h3>
+                        <p data-i18n="gastro.tamal.shortDesc">El desayuno bogotano por excelencia.</p>
+                        <span class="info"><span data-i18n="modal.duration">Duración:</span> <span data-i18n="gastro.tamal.duration">1 hora</span></span>
                     </div>
                 </article>
-                <article class="card">
-                    <img src="https://via.placeholder.com/400x300?text=Oblea" alt="Obleas">
+                <article class="card" data-id="arepa" style="cursor: pointer;">
+                    <img src="assets/images/Gastronomia/Arepa.jpg" alt="Arepa de Huevo">
                     <div class="card-content">
-                        <h3>Obleas en el Centro</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut
-                            labore et dolore magna.</p>
-                        <span class="info">Postre de Calle</span>
+                        <h3 data-i18n="gastro.arepa.title">Arepa de Huevo</h3>
+                        <p data-i18n="gastro.arepa.shortDesc">El desayuno callejero más auténtico y explosivo de Bogotá. Una arepa de maíz crujiente
+                            rellena de huevo fresco que se fríe al momento, servida con hogao, ají y a veces queso o
+                            carne.</p>
+                        <span class="info"><span data-i18n="modal.duration">Duración:</span> <span data-i18n="gastro.arepa.duration">45 mins</span></span>
                     </div>
                 </article>
             </div>
 
-            <h2>Zonas Gastronómicas</h2>
+            <h2 data-i18n="gastro.h2.zonas">Zonas Gastronómicas</h2>
             <div class="grid-3">
-                <article class="card">
-                    <img src="https://via.placeholder.com/400x300?text=Zona+G" alt="Zona G">
+                <article class="card" data-id="zonag" style="cursor: pointer;">
+                    <img src="assets/images/Gastronomia/ZonaG.jpg" alt="Zona G">
                     <div class="card-content">
-                        <h3>Zona G</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod.</p>
-                        <span class="info">Alta Cocina</span>
+                        <h3 data-i18n="gastro.zonag.title">Zona G</h3>
+                        <p data-i18n="gastro.zonag.shortDesc">El barrio gourmet por excelencia de Bogotá. Calles llenas de restaurantes de alta cocina,
+                            fusión, internacional y colombiana moderna. Ambiente elegante pero relajado, ideal para
+                            cenas especiales.</p>
+                        <span class="info"><span data-i18n="modal.duration">Duración:</span> <span data-i18n="gastro.zonag.duration">2 horas</span></span>
                     </div>
                 </article>
-                <article class="card">
-                    <img src="https://via.placeholder.com/400x300?text=Macarena" alt="La Macarena">
+                <article class="card" data-id="macarena" style="cursor: pointer;">
+                    <img src="assets/images/Gastronomia/Macarena.png" alt="La Macarena">
                     <div class="card-content">
-                        <h3>La Macarena</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod.</p>
-                        <span class="info">Bohemio y Gourmet</span>
+                        <h3 data-i18n="gastro.macarena.title">La Macarena</h3>
+                        <p data-i18n="gastro.macarena.shortDesc">La Macarena es un barrio bohemio y emblemático en el centro de Bogotá (localidad de Santa
+                            Fe), conocido como la "Zona M" por su vibrante oferta gastronómica internacional y
+                            artística. Destaca por su arquitectura estilo inglés y casas coloridas, la proximidad al
+                            Parque Nacional, las Torres del Parque y el Planetario de Bogotá. </p>
+                        <span class="info"><span data-i18n="modal.duration">Duración:</span> <span data-i18n="gastro.macarena.duration">2.5 horas</span></span>
                     </div>
                 </article>
-                <article class="card">
-                    <img src="https://via.placeholder.com/400x300?text=Plazas+de+Mercado" alt="Plazas de Mercado">
+                <article class="card" data-id="plazas" style="cursor: pointer;">
+                    <img src="assets/images/Gastronomia/plaza.jpg" alt="Plazas de Mercado">
                     <div class="card-content">
-                        <h3>Plazas de Mercado</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod.</p>
-                        <span class="info">Autenticidad pura</span>
+                        <h3 data-i18n="gastro.plazas.title">Plazas de Mercado</h3>
+                        <p data-i18n="gastro.plazas.shortDesc">El corazón gastronómico real de Bogotá. Frutas exóticas, hierbas aromáticas, carnes, mariscos
+                            frescos y comida preparada al momento. Es la Bogotá más auténtica y vibrante.</p>
+                        <span class="info"><span data-i18n="modal.duration">Duración:</span> <span data-i18n="gastro.plazas.duration">3 horas</span></span>
+                    </div>
+                </article>
+            </div>
+
+            <h2 data-i18n="gastro.h2.experiencias">Experiencias Culinarias</h2>
+            <div class="grid-3">
+                <article class="card" data-id="taller" style="cursor: pointer;">
+                    <img src="assets/images/Gastronomia/taller3.jpg" alt="Taller de Cocina Bogotana">
+                    <div class="card-content">
+                        <h3 data-i18n="gastro.taller.title">Taller de Cocina Bogotana</h3>
+                        <p data-i18n="gastro.taller.shortDesc">Una experiencia interactiva y deliciosa donde aprendes a preparar platos tradicionales de
+                            Bogotá con un chef local.</p>
+                        <span class="info"><span data-i18n="modal.duration">Duración:</span> <span data-i18n="gastro.taller.duration">3 horas</span></span>
                     </div>
                 </article>
             </div>
         </section>
     </main>
+
+    <!-- Gastronomia Details Modal (9:16 format) -->
+    <div id="gastro-details-modal" class="gastro-modal-overlay">
+        <div class="gastro-modal-content">
+            <button class="gastro-modal-close" aria-label="Cerrar modal">&times;</button>
+            <div class="gastro-modal-hero">
+                <img id="gm-img" src="" alt="Gastronomy Image">
+                <div class="gastro-modal-hero-overlay"></div>
+            </div>
+            <div class="gastro-modal-body">
+                <h3 id="gm-title">Título de la Gastronomía</h3>
+                <p id="gm-desc" class="gastro-modal-desc">Descripción...</p>
+                <div class="gastro-modal-info">
+                    <div class="info-item"><strong data-i18n="modal.duration">Duración:</strong> <span id="gm-duration"></span></div>
+                    <div class="info-item"><strong data-i18n="modal.price">Precio:</strong> <span id="gm-price"></span></div>
+                    <div class="info-item"><strong data-i18n="modal.howto.alt">Cómo participar:</strong> <span id="gm-howto"></span></div>
+                </div>
+                <div class="gastro-modal-recommendations">
+                    <strong data-i18n="modal.recs">Recomendaciones:</strong>
+                    <p id="gm-recs"></p>
+                </div>
+                <button id="gm-btn-map" class="btn btn-full btn-map" data-i18n="modal.btnMap">Ver en Mapa</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Map Leaflet Modal -->
+    <div id="gastro-map-modal" class="gastro-modal-overlay gastro-map-overlay">
+        <div class="gastro-modal-content map-modal-content">
+            <button class="gastro-modal-close alt-close" aria-label="Cerrar mapa">&times;</button>
+            <h3 id="gm-map-title" class="map-modal-title" data-i18n="modal.location">Ubicación</h3>
+            <div id="gm-leaflet-map" style="width:100%; height:400px; border-radius:8px;"></div>
+            <button id="gm-btn-back" class="btn btn-outline" style="margin-top: 1rem; width: 100%;" data-i18n="modal.btnBack">Volver a
+                detalles</button>
+        </div>
+    </div>
+
+    <script src="js/translations.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/gastronomia-modals.js"></script>
 </body>
 
 </html>

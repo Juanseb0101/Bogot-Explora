@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const mapContainerId = 'rm-leaflet-map';
 
     let activeRouteData = null;
+    let activeRouteId = null;
     let modalLeafletMap = null;
     let mapMarker = null;
 
@@ -103,23 +104,39 @@ document.addEventListener('DOMContentLoaded', () => {
             const id = card.getAttribute('data-id');
             const data = routesData[id];
             if (data) {
-                openDetailsModal(data);
+                openDetailsModal(id, data);
             }
         });
     });
 
-    function openDetailsModal(data) {
+    function openDetailsModal(id, data) {
         activeRouteData = data;
+        activeRouteId = id;
+
+        // Populate data using i18next
+        rmImg.src = data.image || data.imagen;
+        rmImg.alt = i18next.t(`rutas.${id}.title`);
+        
+        rmTitle.setAttribute('data-i18n', `rutas.${id}.title`);
+        rmTitle.textContent = i18next.t(`rutas.${id}.title`);
+        
+        rmDesc.setAttribute('data-i18n', `rutas.${id}.desc`);
+        rmDesc.textContent = i18next.t(`rutas.${id}.desc`);
+        
+        rmDuration.setAttribute('data-i18n', `rutas.${id}.duration`);
+        rmDuration.textContent = i18next.t(`rutas.${id}.duration`);
+        
+        rmPrice.setAttribute('data-i18n', `rutas.${id}.price`);
+        rmPrice.textContent = i18next.t(`rutas.${id}.price`);
+        
+        rmHowTo.setAttribute('data-i18n', `rutas.${id}.howto`);
+        rmHowTo.textContent = i18next.t(`rutas.${id}.howto`);
+        
+        rmRecs.setAttribute('data-i18n', `rutas.${id}.recs`);
+        rmRecs.textContent = i18next.t(`rutas.${id}.recs`);
 
         // Populate data
-        rmImg.src = data.image;
-        rmImg.alt = data.title;
-        rmTitle.textContent = data.title;
-        rmDesc.textContent = data.desc;
-        rmDuration.textContent = data.duration;
-        rmPrice.textContent = data.price;
-        rmHowTo.textContent = data.howto;
-        rmRecs.textContent = data.recs;
+
 
         // Show modal
         routeDetailsModal.classList.add('active');
@@ -138,7 +155,7 @@ document.addEventListener('DOMContentLoaded', () => {
         routeDetailsModal.classList.remove('active');
         routeMapModal.classList.add('active');
 
-        rmMapTitle.textContent = `Mapa: ${activeRouteData.title}`;
+        rmMapTitle.textContent = i18next.t('modal.mapTitle') + i18next.t(`rutas.${activeRouteId}.title`);
 
         // Initialize or update map
         setTimeout(() => {
@@ -159,7 +176,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Required for maps inside modals so they render correctly
             modalLeafletMap.invalidateSize();
-            mapMarker.bindPopup(`<b>${activeRouteData.title}</b>`).openPopup();
+            const translatedTitle = i18next.t(`rutas.${activeRouteId}.title`);
+            mapMarker.bindPopup(`<b>${translatedTitle}</b>`).openPopup();
 
         }, 300); // 300ms matches the CSS transition time to ensure modal is visible
     }
@@ -198,6 +216,16 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
             closeAllModals();
+        }
+    });
+
+    window.addEventListener('languageChanged', () => {
+        if (routeDetailsModal.classList.contains('active') && activeRouteId) {
+            openDetailsModal(activeRouteId, activeRouteData);
+        }
+        if (routeMapModal.classList.contains('active') && activeRouteId) {
+            rmMapTitle.textContent = i18next.t('modal.mapTitle') + i18next.t(`rutas.${activeRouteId}.title`);
+            mapMarker.bindPopup(`<b>${i18next.t(`rutas.${activeRouteId}.title`)}</b>`).openPopup();
         }
     });
 });

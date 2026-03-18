@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const mapContainerId = 'em-leaflet-map';
 
     let activeExperienceData = null;
+    let activeExperienceId = null;
     let modalLeafletMap = null;
     let mapMarker = null;
 
@@ -71,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
             lat: 4.5985,
             lng: -74.0754 /* Placeholder location since there are many */
         },
-        'pulgas': {
+        'cafe': {
             title: 'Experiencia de Cata de Café en Bogotá',
             desc: 'Las experiencias de cata de café en Bogotá, con una duración promedio de 1.5 a 2 horas, ofrecen inmersiones sensoriales en el barrio La Candelaria y otras zonas, donde expertos baristas enseñan sobre la historia, cultivo, tueste y métodos de filtrado (V60, Chemex, Prensa Francesa) de cafés especiales.',
             duration: '3 horas',
@@ -82,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
             lat: 4.6953, /* Usaquén coords */
             lng: -74.0321
         },
-        'esmeraldas': {
+        'gabo': {
             title: 'Casa Museo de Gabo en Bogotá',
             desc: 'En Bogotá, el principal punto de referencia dedicado a Gabriel García Márquez es el Centro Cultural Gabriel García Márquez, ubicado en el barrio La Candelaria (Calle 11 # 5-60). Es un espacio cultural con librería, exposiciones y biblioteca, diseñado por Rogelio Salmona. Además, la Biblioteca Nacional de Colombia exhibe colecciones sobre su vida. ',
             duration: '1 hora',
@@ -102,22 +103,37 @@ document.addEventListener('DOMContentLoaded', () => {
             const id = card.getAttribute('data-id');
             const data = experiencesData[id];
             if (data) {
-                openModal(data);
+                openModal(id, data);
             }
         });
     });
 
-    function openModal(data) {
+    function openModal(id, data) {
         activeExperienceData = data;
+        activeExperienceId = id;
 
         emImg.src = data.image;
-        emImg.alt = data.title;
-        emTitle.textContent = data.title;
-        emDesc.textContent = data.desc;
-        emDuration.textContent = data.duration;
-        emPrice.textContent = data.price;
-        emHowTo.textContent = data.howto;
-        emRecs.textContent = data.recs;
+        emImg.alt = i18next.t(`exp.${id}.title`);
+        
+        emTitle.setAttribute('data-i18n', `exp.${id}.title`);
+        emTitle.textContent = i18next.t(`exp.${id}.title`);
+        
+        emDesc.setAttribute('data-i18n', `exp.${id}.desc`);
+        emDesc.textContent = i18next.t(`exp.${id}.desc`);
+        
+        emDuration.setAttribute('data-i18n', `exp.${id}.duration`);
+        emDuration.textContent = i18next.t(`exp.${id}.duration`);
+        
+        emPrice.setAttribute('data-i18n', `exp.${id}.price`);
+        emPrice.textContent = i18next.t(`exp.${id}.price`);
+        
+        emHowTo.setAttribute('data-i18n', `exp.${id}.howto`);
+        emHowTo.textContent = i18next.t(`exp.${id}.howto`);
+        
+        emRecs.setAttribute('data-i18n', `exp.${id}.recs`);
+        emRecs.textContent = i18next.t(`exp.${id}.recs`);
+
+
 
         expDetailsModal.classList.add('active');
         document.body.style.overflow = 'hidden'; // Stop scrolling
@@ -135,7 +151,7 @@ document.addEventListener('DOMContentLoaded', () => {
         expDetailsModal.classList.remove('active');
         expMapModal.classList.add('active');
 
-        emMapTitle.textContent = `Mapa: ${activeExperienceData.title}`;
+        emMapTitle.textContent = i18next.t('modal.mapTitle') + i18next.t(`exp.${activeExperienceId}.title`);
 
         // Initialize or update map
         setTimeout(() => {
@@ -155,7 +171,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             modalLeafletMap.invalidateSize();
-            mapMarker.bindPopup(`<b>${activeExperienceData.title}</b>`).openPopup();
+            mapMarker.bindPopup(`<b>${i18next.t(`exp.${activeExperienceId}.title`)}</b>`).openPopup();
 
         }, 300);
     }
@@ -194,6 +210,16 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
             closeAllModals();
+        }
+    });
+
+    window.addEventListener('languageChanged', () => {
+        if (expDetailsModal.classList.contains('active') && activeExperienceId) {
+            openModal(activeExperienceId, activeExperienceData);
+        }
+        if (expMapModal.classList.contains('active') && activeExperienceId) {
+            emMapTitle.textContent = i18next.t('modal.mapTitle') + i18next.t(`exp.${activeExperienceId}.title`);
+            mapMarker.bindPopup(`<b>${i18next.t(`exp.${activeExperienceId}.title`)}</b>`).openPopup();
         }
     });
 });

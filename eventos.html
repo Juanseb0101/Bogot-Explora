@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bogotá Explora | Eventos y Comunidad</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <script src="https://unpkg.com/i18next@23.10.1/i18next.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 </head>
 
 <body>
@@ -14,7 +16,7 @@
         <div class="container header-container">
             <div class="logo">
                 <a href="index.html">
-                    <img src="assets/images/logo.jpg" alt="Bogotá Explora" class="logo-img"
+                    <img src="assets/images/Front/logo.jpg" alt="Bogotá Explora" class="logo-img"
                         onerror="this.src='https://via.placeholder.com/150x50?text=Bogot%C3%A1+Explora';">
                 </a>
             </div>
@@ -42,70 +44,120 @@
     <main class="page-content">
         <section class="page-hero">
             <div class="container">
-                <h1 class="page-title">Eventos y Comunidad</h1>
-                <p class="page-subtitle">Vive los momentos que nos unen y celebran nuestra diversidad.</p>
+                <h1 class="page-title" data-i18n="ev.page.title">Eventos y Comunidad</h1>
+                <p class="page-subtitle" data-i18n="ev.page.subtitle">Vive los momentos que nos unen y celebran nuestra diversidad.</p>
             </div>
         </section>
 
         <section class="experiences-section container">
-            <h2>Grandes Festivales</h2>
+            <h2 data-i18n="ev.h2.festivales">Grandes Festivales</h2>
             <div class="grid-3">
-                <article class="card">
-                    <img src="https://via.placeholder.com/400x300?text=Rock+al+Parque" alt="Rock al Parque">
+                <article class="card" data-id="rock" style="cursor: pointer;">
+                    <img src="assets/images/Eventos/rock.jpeg" alt="Rock al Parque">
                     <div class="card-content">
-                        <h3>Rock al Parque</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod.</p>
-                        <span class="info">Gratis</span>
+                        <h3 data-i18n="ev.rock.title">Rock al Parque</h3>
+                        <p data-i18n="ev.rock.shortDesc">El festival de rock gratuito más grande de Latinoamérica y uno de los eventos culturales más
+                            importantes de Bogotá.</p>
+                        <span class="info"><span data-i18n="modal.duration">Duración:</span> <span data-i18n="ev.rock.duration">3 Días</span></span>
                     </div>
                 </article>
-                <article class="card">
-                    <img src="https://via.placeholder.com/400x300?text=Estereo+Picnic" alt="Estéreo Picnic">
+                <article class="card" data-id="picnic" style="cursor: pointer;">
+                    <img src="assets/images/Eventos/picnic.png" alt="Estéreo Picnic">
                     <div class="card-content">
-                        <h3>Festival Estéreo Picnic</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod.</p>
-                        <span class="info">Marzo/Abril</span>
+                        <h3 data-i18n="ev.picnic.title">Festival Estéreo Picnic</h3>
+                        <p data-i18n="ev.picnic.shortDesc">El festival de música y cultura más importante de Colombia. Tres días de artistas
+                            internacionales y locales de primer nivel en el Parque Simón Bolívar. En 2026 celebra su 15ª
+                            edición con un cartel de lujo (Tyler The Creator, The Killers, Sabrina Carpenter, Deftones,
+                            Lorde, etc.).</p>
+                        <span class="info"><span data-i18n="modal.duration">Duración:</span> <span data-i18n="ev.picnic.duration">4 Días</span></span>
                     </div>
                 </article>
-                <article class="card">
-                    <img src="https://via.placeholder.com/400x300?text=FIAV" alt="FIAV">
+                <article class="card" data-id="fiav" style="cursor: pointer;">
+                    <img src="assets/images/Eventos/fiav.png" alt="FIAV">
                     <div class="card-content">
-                        <h3>Festival Iberoamericano de Artes Vivas</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod.</p>
-                        <span class="info">Teatro</span>
+                        <h3 data-i18n="ev.fiav.title">Festival Iberoamericano de Artes Vivas</h3>
+                        <p data-i18n="ev.fiav.shortDesc">Uno de los festivales de artes escénicas más grandes de Latinoamérica. Teatro, danza, música
+                            en vivo, clown y performances por toda la ciudad. En 2026 se realiza del 27 de marzo al 5 de
+                            abril con compañías de todo el mundo.</p>
+                        <span class="info"><span data-i18n="modal.duration">Duración:</span> <span data-i18n="ev.fiav.duration">2 Semanas</span></span>
                     </div>
                 </article>
             </div>
 
-            <h2>Vida de Barrio</h2>
+            <h2 data-i18n="ev.h2.barrio">Vida de Barrio</h2>
             <div class="grid-3">
-                <article class="card">
-                    <img src="https://via.placeholder.com/400x300?text=Septima" alt="Septimazo">
+                <article class="card" data-id="septimazo" style="cursor: pointer;">
+                    <img src="assets/images/Eventos/septimazo2.jpg" alt="Septimazo">
                     <div class="card-content">
-                        <h3>El Septimazo</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod.</p>
-                        <span class="info">Cultura urbana</span>
+                        <h3 data-i18n="ev.septimazo.title">El Septimazo</h3>
+                        <p data-i18n="ev.septimazo.shortDesc">La tradicional caminata cultural nocturna por la Carrera Séptima. Cada viernes se llena de
+                            artistas callejeros, música en vivo, exposiciones, danza y comida. Es la Bogotá bohemia y
+                            viva que no te puedes perder.</p>
+                        <span class="info"><span data-i18n="modal.duration">Duración:</span> <span data-i18n="ev.septimazo.duration">3 horas</span></span>
                     </div>
                 </article>
-                <article class="card">
-                    <img src="https://via.placeholder.com/400x300?text=Ciclovia" alt="Ciclovía">
+                <article class="card" data-id="ciclovia" style="cursor: pointer;">
+                    <img src="assets/images/Eventos/ciclovia2.jpeg" alt="Ciclovía">
                     <div class="card-content">
-                        <h3>Ciclovía Dominical</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod.</p>
-                        <span class="info">Domingos y Festivos</span>
+                        <h3 data-i18n="ev.ciclovia.title">Ciclovía Dominical</h3>
+                        <p data-i18n="ev.ciclovia.shortDesc">La ciclovía más antigua y grande del mundo. Cada domingo y festivo se cierran 138 km de vías
+                            para que la ciudad se convierta en un gran parque lineal lleno de bicicletas, patinetas,
+                            caminantes, clases de baile y actividades recreativas.</p>
+                        <span class="info"><span data-i18n="modal.duration">Duración:</span> <span data-i18n="ev.ciclovia.duration">2 a 5 horas</span></span>
                     </div>
                 </article>
-                <article class="card">
-                    <img src="https://via.placeholder.com/400x300?text=Arte+Local" alt="Arte Local">
+                <article class="card" data-id="arte" style="cursor: pointer;">
+                    <img src="assets/images/Eventos/cultura.png" alt="Arte Local">
                     <div class="card-content">
-                        <h3>Ferias de Arte Local</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod.</p>
-                        <span class="info">Distritos Creativos</span>
+                        <h3 data-i18n="ev.arte.title">Ferias de Arte Local</h3>
+                        <p data-i18n="ev.arte.shortDesc">Eventos culturales en las 20 localidades de Bogotá con ferias de arte, música, danza,
+                            talleres y exposiciones callejeras. Es la Bogotá de barrio, auténtica y cercana.</p>
+                        <span class="info"><span data-i18n="modal.duration">Duración:</span> <span data-i18n="ev.arte.duration">2 horas</span></span>
                     </div>
                 </article>
             </div>
         </section>
     </main>
+
+    <!-- Eventos Details Modal (9:16 format) -->
+    <div id="event-details-modal" class="event-modal-overlay">
+        <div class="event-modal-content">
+            <button class="event-modal-close" aria-label="Cerrar modal">&times;</button>
+            <div class="event-modal-hero">
+                <img id="ev-img" src="" alt="Event Image">
+                <div class="event-modal-hero-overlay"></div>
+            </div>
+            <div class="event-modal-body">
+                <h3 id="ev-title">Título del Evento</h3>
+                <p id="ev-desc" class="event-modal-desc">Descripción...</p>
+                <div class="event-modal-info">
+                    <div class="info-item"><strong data-i18n="modal.duration">Duración:</strong> <span id="ev-duration"></span></div>
+                    <div class="info-item"><strong data-i18n="modal.price">Precio:</strong> <span id="ev-price"></span></div>
+                    <div class="info-item"><strong data-i18n="modal.howto.alt">Cómo participar:</strong> <span id="ev-howto"></span></div>
+                </div>
+                <div class="event-modal-recommendations">
+                    <strong data-i18n="modal.recs">Recomendaciones:</strong>
+                    <p id="ev-recs"></p>
+                </div>
+                <button id="ev-btn-map" class="btn btn-full btn-map" data-i18n="modal.btnMap">Ver en Mapa</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Map Leaflet Modal -->
+    <div id="event-map-modal" class="event-modal-overlay event-map-overlay">
+        <div class="event-modal-content map-modal-content">
+            <button class="event-modal-close alt-close" aria-label="Cerrar mapa">&times;</button>
+            <h3 id="ev-map-title" class="map-modal-title" data-i18n="modal.location">Ubicación</h3>
+            <div id="ev-leaflet-map" style="width:100%; height:400px; border-radius:8px;"></div>
+            <button id="ev-btn-back" class="btn btn-outline" style="margin-top: 1rem; width: 100%;" data-i18n="modal.btnBack">Volver a
+                detalles</button>
+        </div>
+    </div>
+
+    <script src="js/translations.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/eventos-modals.js"></script>
 </body>
 
 </html>

@@ -132,7 +132,7 @@ ul {
 }
 
 .logo img {
-    height: 40px;
+    height: 80px;
     width: auto;
 }
 
@@ -786,4 +786,451 @@ section h2 {
 
 .exp-map-overlay {
     z-index: 3010;
+}
+
+/* ---- Gastronomia Modals ---- */
+.gastro-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 61, 47, 0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--transition-normal);
+    backdrop-filter: blur(4px);
+}
+
+.gastro-modal-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.gastro-modal-content {
+    background: var(--color-bg);
+    width: 92%;
+    max-width: 400px;
+    height: 85vh;
+    max-height: 711px;
+    border-radius: 16px;
+    overflow-y: auto;
+    position: relative;
+    transform: scale(0.95);
+    transition: transform var(--transition-normal);
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.gastro-modal-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.gastro-modal-content::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.gastro-modal-overlay.active .gastro-modal-content {
+    transform: scale(1);
+}
+
+.gastro-modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(255, 255, 255, 0.8);
+    border: none;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--color-primary);
+    z-index: 10;
+    transition: background var(--transition-fast), transform var(--transition-fast);
+}
+
+.gastro-modal-close:hover {
+    background: #fff;
+    transform: scale(1.1);
+}
+
+.gastro-modal-hero {
+    position: relative;
+    width: 100%;
+    height: 40%;
+    min-height: 250px;
+    flex-shrink: 0;
+}
+
+.gastro-modal-hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.gastro-modal-hero-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(to top, var(--color-bg) 0%, transparent 100%);
+}
+
+.gastro-modal-body {
+    padding: 1.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.gastro-modal-body h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: var(--color-primary);
+    margin-top: -1rem;
+    position: relative;
+    z-index: 2;
+}
+
+.gastro-modal-desc {
+    font-size: 0.95rem;
+    color: var(--color-text-dark);
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+}
+
+.gastro-modal-info {
+    background: #fff;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+}
+
+.gastro-modal-recommendations {
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+    padding-left: 1rem;
+    border-left: 3px solid var(--color-accent);
+}
+
+.gastro-modal-recommendations strong {
+    display: block;
+    margin-bottom: 0.3rem;
+    color: var(--color-primary);
+}
+
+.gastro-map-overlay {
+    z-index: 3010;
+}
+
+/* ---- Eventos Modals ---- */
+.event-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 61, 47, 0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--transition-normal);
+    backdrop-filter: blur(4px);
+}
+
+.event-modal-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.event-modal-content {
+    background: var(--color-bg);
+    width: 92%;
+    max-width: 400px;
+    height: 85vh;
+    max-height: 711px;
+    border-radius: 16px;
+    overflow-y: auto;
+    position: relative;
+    transform: scale(0.95);
+    transition: transform var(--transition-normal);
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.event-modal-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.event-modal-content::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.event-modal-overlay.active .event-modal-content {
+    transform: scale(1);
+}
+
+.event-modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(255, 255, 255, 0.8);
+    border: none;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--color-primary);
+    z-index: 10;
+    transition: background var(--transition-fast), transform var(--transition-fast);
+}
+
+.event-modal-close:hover {
+    background: #fff;
+    transform: scale(1.1);
+}
+
+.event-modal-hero {
+    position: relative;
+    width: 100%;
+    height: 40%;
+    min-height: 250px;
+    flex-shrink: 0;
+}
+
+.event-modal-hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.event-modal-hero-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(to top, var(--color-bg) 0%, transparent 100%);
+}
+
+.event-modal-body {
+    padding: 1.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.event-modal-body h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: var(--color-primary);
+    margin-top: -1rem;
+    position: relative;
+    z-index: 2;
+}
+
+.event-modal-desc {
+    font-size: 0.95rem;
+    color: var(--color-text-dark);
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+}
+
+.event-modal-info {
+    background: #fff;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+}
+
+.event-modal-recommendations {
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+    padding-left: 1rem;
+    border-left: 3px solid var(--color-accent);
+}
+
+.event-modal-recommendations strong {
+    display: block;
+    margin-bottom: 0.3rem;
+    color: var(--color-primary);
+}
+
+.event-map-overlay {
+    z-index: 3010;
+}
+
+/* ---- Footer ---- */
+.site-footer {
+    background-color: #102426;
+    color: var(--color-bg);
+    padding: 4rem 0 2rem;
+    font-family: var(--font-sans);
+}
+
+.footer-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-top {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+    justify-content: space-between;
+    margin-bottom: 3rem;
+}
+
+.footer-brand {
+    flex: 0 0 100%;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.footer-logo {
+    height: 60px;
+    width: auto;
+}
+
+.footer-links-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1;
+    justify-content: center;
+    gap: 2rem;
+    text-align: center;
+}
+
+.footer-col {
+    flex: 1 1 200px;
+    min-width: 200px;
+}
+
+.footer-col h4 {
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
+    color: var(--color-accent);
+    margin-bottom: 1.5rem;
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-col ul li {
+    margin-bottom: 0.8rem;
+}
+
+.footer-col ul li a {
+    color: var(--color-bg);
+    opacity: 0.8;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: color var(--transition-fast), opacity var(--transition-fast);
+}
+
+.footer-col ul li a:hover {
+    color: var(--color-accent);
+    opacity: 1;
+}
+
+.footer-bottom {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid rgba(248, 241, 233, 0.1);
+    padding-top: 2rem;
+    gap: 1.5rem;
+    text-align: center;
+}
+
+.footer-copy {
+    flex: 1 1 100%;
+}
+
+.footer-copy p {
+    font-size: 0.85rem;
+    opacity: 0.7;
+    margin: 0;
+}
+
+.footer-socials {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex: 1 1 100%;
+}
+
+.footer-socials a {
+    color: var(--color-bg);
+    opacity: 0.8;
+    transition: color var(--transition-fast), opacity var(--transition-fast), transform var(--transition-fast);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-socials a:hover {
+    color: var(--color-accent);
+    opacity: 1;
+    transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (min-width: 992px) {
+    .footer-top {
+        flex-wrap: nowrap;
+        justify-content: space-between;
+    }
+    
+    .footer-brand {
+        flex: 0 0 250px;
+        margin-bottom: 0;
+        text-align: left;
+    }
+
+    .footer-links-wrapper {
+        justify-content: flex-start;
+        text-align: left;
+    }
+
+    .footer-bottom {
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        text-align: left;
+    }
+
+    .footer-copy {
+        flex: 1;
+        text-align: left;
+    }
+
+    .footer-socials {
+        flex: 0 0 auto;
+        justify-content: flex-end;
+    }
 }
