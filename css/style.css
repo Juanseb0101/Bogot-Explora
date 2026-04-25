@@ -1234,3 +1234,342 @@ section h2 {
         justify-content: flex-end;
     }
 }
+
+/* ---- Main Nav Dropdown ---- */
+.main-nav .dropdown-parent {
+    position: relative;
+}
+
+.main-nav .dropdown-parent > button {
+    background: none;
+    border: none;
+    color: inherit;
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0;
+    transition: color var(--transition-fast);
+}
+
+.main-nav .dropdown-parent > button::after {
+    content: '';
+    display: inline-block;
+    border: solid currentColor;
+    border-width: 0 2px 2px 0;
+    padding: 2.5px;
+    transform: translateY(-2px) rotate(45deg);
+    transition: transform var(--transition-fast);
+    margin-left: 2px;
+}
+
+.main-nav .dropdown-parent.open > button::after,
+.main-nav .dropdown-parent:hover > button::after {
+    transform: translateY(2px) rotate(-135deg);
+}
+
+.main-nav .dropdown-parent > button:hover {
+    color: var(--color-accent);
+}
+
+.main-nav .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--color-bg);
+    min-width: 220px;
+    padding: 0.5rem 0;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: opacity var(--transition-fast), transform var(--transition-fast), visibility var(--transition-fast);
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    z-index: 1000;
+}
+
+.main-nav .dropdown-parent:hover .dropdown-menu,
+.main-nav .dropdown-parent.open .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.main-nav .dropdown-menu li {
+    width: 100%;
+}
+
+.main-nav .dropdown-menu a {
+    display: block;
+    padding: 0.75rem 1.5rem;
+    color: var(--color-text-dark);
+    font-size: 0.9rem;
+    font-weight: 400;
+    text-align: left;
+}
+
+.main-nav .dropdown-menu a:hover {
+    background-color: rgba(10, 61, 47, 0.05);
+    color: var(--color-primary);
+}
+
+/* Active State */
+.main-nav li.active > a,
+.main-nav li.active > button {
+    color: var(--color-accent);
+}
+
+.main-nav .dropdown-menu li.active > a {
+    background-color: rgba(232, 185, 35, 0.1);
+    color: var(--color-primary);
+    font-weight: 600;
+}
+
+/* Mobile Nav Adjustments */
+@media (max-width: 992px) {
+    .main-nav .dropdown-menu {
+        position: static;
+        box-shadow: none;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        display: none;
+        padding-left: 1rem;
+        padding-top: 0.5rem;
+        background-color: transparent;
+        min-width: 100%;
+    }
+    
+    .main-nav .dropdown-parent.open .dropdown-menu {
+        display: flex;
+    }
+
+    .main-nav .dropdown-parent:hover .dropdown-menu {
+        display: none;
+    }
+    
+    .main-nav .dropdown-parent.open:hover .dropdown-menu {
+        display: flex;
+    }
+}
+
+/* ---- Map Intro Section ---- */
+.map-intro {
+    padding: 2rem 0;
+    background-color: var(--color-bg); /* Use base bg or could be another light color. */
+}
+
+.map-intro-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.map-intro h1 {
+    font-size: 2.5rem;
+    color: var(--color-primary);
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.map-description {
+    display: flex;
+    gap: 2rem;
+    width: 100%;
+}
+
+.map-desc-block {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    flex: 1;
+}
+
+.map-desc-icon {
+    font-size: 2rem;
+    line-height: 1;
+}
+
+.map-desc-block h3 {
+    font-size: 1.25rem;
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
+}
+
+.map-desc-block p {
+    font-size: 0.95rem;
+    color: var(--color-text-dark);
+}
+
+.full-map {
+    width: 100%;
+    height: 60vh;
+}
+
+@media (max-width: 768px) {
+    .map-description {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+}
+
+/* ---- Credits Page ---- */
+.credits-hero {
+    padding: 6rem 1.5rem 4rem;
+    text-align: center;
+}
+
+.credits-hero h1 {
+    font-family: var(--font-serif);
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    color: var(--color-primary);
+}
+
+.credits-hero p {
+    font-family: var(--font-sans);
+    font-weight: 300;
+    color: var(--color-text-dark);
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.credits-section {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 4rem 1.5rem;
+}
+
+.credit-row {
+    display: grid;
+    grid-template-columns: 80px 220px 1fr;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem 0;
+    border-bottom: 1px solid rgba(10, 61, 47, 0.1);
+}
+
+.credit-row:last-of-type {
+    border-bottom: none;
+}
+
+.credit-thumb {
+    font-size: 2.5rem;
+    text-align: center;
+}
+
+.credit-category {
+    display: block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--color-accent);
+}
+
+.credit-name {
+    font-family: var(--font-serif);
+    font-weight: 600;
+    margin-top: 0.25rem;
+    color: var(--color-primary);
+}
+
+.credit-detail p {
+    font-family: var(--font-sans);
+    font-weight: 400;
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+}
+
+.credit-link {
+    color: var(--color-accent);
+    text-decoration: none;
+}
+
+.credit-link:hover {
+    text-decoration: underline;
+}
+
+.credit-warning {
+    display: block;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    color: #f39c12;
+    font-size: 0.8rem;
+}
+
+.credit-warning::before {
+    content: "⚠️ ";
+}
+
+.credits-footer-note {
+    text-align: center;
+    font-style: italic;
+    font-family: var(--font-sans);
+    font-weight: 300;
+    padding: 2rem 0;
+    color: #6b7280;
+    border-top: 1px solid rgba(10, 61, 47, 0.1);
+    margin-top: 2rem;
+}
+
+@media (max-width: 768px) {
+    .credit-row {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 1rem;
+    }
+    
+    .credit-thumb {
+        margin: 0 auto;
+    }
+}
+
+/* ============================================================
+   WCAG 2.1 AA — Estilos de foco visible (criterios 2.4.7 y 2.4.11)
+   Se agregan AL FINAL sin modificar ninguna regla existente.
+   Se usa :focus-visible para no mostrar el anillo en clics de ratón,
+   pero sí hacerlo claramente visible para usuarios de teclado.
+   ============================================================ */
+
+/* WCAG - Foco en los botones padre del dropdown */
+.main-nav .dropdown-parent > button:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+}
+
+/* WCAG - Foco en los enlaces directos del nav (Gastronomía, Planifica) */
+.main-nav > ul > li > a:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+}
+
+/* WCAG - Foco en los ítems hijo del dropdown (role="menuitem") */
+.main-nav .dropdown-menu [role="menuitem"]:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: -2px;            /* interior, para no cortar el borde del menú */
+    border-radius: 4px;
+    background-color: rgba(232, 185, 35, 0.12); /* fondo tenue de acento */
+    color: var(--color-primary);
+}
+
+/* WCAG - Soporte modo oscuro: invertir colores de foco si el SO usa dark mode */
+@media (prefers-color-scheme: dark) {
+    .main-nav .dropdown-parent > button:focus-visible,
+    .main-nav > ul > li > a:focus-visible {
+        outline-color: var(--color-accent);  /* el amarillo sigue siendo válido */
+    }
+
+    .main-nav .dropdown-menu [role="menuitem"]:focus-visible {
+        outline-color: var(--color-accent);
+        background-color: rgba(232, 185, 35, 0.18);
+    }
+}

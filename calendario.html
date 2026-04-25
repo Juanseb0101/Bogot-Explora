@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bogotá Explora | Calendario de Eventos</title>
+    <title>BogotÃ¡ Explora | Calendario de Eventos</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <script src="https://unpkg.com/i18next@23.10.1/i18next.min.js"></script>
@@ -15,18 +15,28 @@
         <div class="container header-container">
             <div class="logo">
                 <a href="index.html">
-                    <img src="assets/images/Front/logo.jpg" alt="Bogotá Explora" class="logo-img"
+                    <img src="assets/images/Front/logo.jpg" alt="BogotÃ¡ Explora" class="logo-img"
                         onerror="this.src='https://via.placeholder.com/150x50?text=Bogot%C3%A1+Explora';">
                 </a>
             </div>
             <nav class="main-nav">
                 <ul>
-                    <li><a href="rutas.html" data-i18n="nav.routes">Rutas Turísticas</a></li>
-                    <li><a href="experiencias.html" data-i18n="nav.experiences">Experiencias Culturales</a></li>
-                    <li><a href="gastronomia.html" data-i18n="nav.gastronomy">Gastronomía Bogotana</a></li>
-                    <li><a href="eventos.html" data-i18n="nav.events">Eventos y Comunidad</a></li>
-                    <li><a href="calendario.html" data-i18n="nav.calendar">Calendario</a></li>
-                    <li><a href="mapa.html" data-i18n="nav.map" class="nav-map-btn">Mapa</a></li>
+                    <li class="dropdown-parent">
+                        <button aria-haspopup="true" aria-expanded="false" aria-controls="dropdown-discover" data-i18n="nav.discover">Descubre BogotÃ¡</button>
+                        <ul id="dropdown-discover" role="menu" class="dropdown-menu">
+                            <li><a href="rutas.html" role="menuitem" tabindex="-1" data-i18n="nav.routes">Rutas TurÃ­sticas</a></li>
+                            <li><a href="experiencias.html" role="menuitem" tabindex="-1" data-i18n="nav.experiences">Experiencias Culturales</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="gastronomia.html" data-i18n="nav.gastronomy">GastronomÃ­a Bogotana</a></li>
+                    <li class="dropdown-parent active">
+                        <button aria-haspopup="true" aria-expanded="false" aria-controls="dropdown-events" data-i18n="nav.events_section">Eventos</button>
+                        <ul id="dropdown-events" role="menu" class="dropdown-menu">
+                            <li><a href="eventos.html" role="menuitem" tabindex="-1" data-i18n="nav.events">Eventos y Comunidad</a></li>
+                            <li class="active"><a href="calendario.html" role="menuitem" tabindex="-1" data-i18n="nav.calendar">Calendario</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="mapa.html" data-i18n="nav.plan" class="nav-map-btn">Planifica tu visita</a></li>
                 </ul>
             </nav>
             <div class="header-tools">
@@ -44,7 +54,7 @@
         <section class="page-hero">
             <div class="container">
                 <h1 class="page-title" data-i18n="cal.page.title">Encuentra Eventos en tu Visita</h1>
-                <p class="page-subtitle" data-i18n="cal.page.subtitle">Selecciona las fechas de tu viaje y descubre qué hacer en Bogotá.</p>
+                <p class="page-subtitle" data-i18n="cal.page.subtitle">Selecciona las fechas de tu viaje y descubre quÃ© hacer en BogotÃ¡.</p>
             </div>
         </section>
 

@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bogotá Explora | Experiencias Culturales</title>
+    <title>BogotÃ¡ Explora | Experiencias Culturales</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <script src="https://unpkg.com/i18next@23.10.1/i18next.min.js"></script>
@@ -16,18 +16,28 @@
         <div class="container header-container">
             <div class="logo">
                 <a href="index.html">
-                    <img src="assets/images/Front/logo.jpg" alt="Bogotá Explora" class="logo-img"
+                    <img src="assets/images/Front/logo.jpg" alt="BogotÃ¡ Explora" class="logo-img"
                         onerror="this.src='https://via.placeholder.com/150x50?text=Bogot%C3%A1+Explora';">
                 </a>
             </div>
             <nav class="main-nav">
                 <ul>
-                    <li><a href="rutas.html" data-i18n="nav.routes">Rutas Turísticas</a></li>
-                    <li><a href="experiencias.html" data-i18n="nav.experiences">Experiencias Culturales</a></li>
-                    <li><a href="gastronomia.html" data-i18n="nav.gastronomy">Gastronomía Bogotana</a></li>
-                    <li><a href="eventos.html" data-i18n="nav.events">Eventos y Comunidad</a></li>
-                    <li><a href="calendario.html" data-i18n="nav.calendar">Calendario</a></li>
-                    <li><a href="mapa.html" data-i18n="nav.map" class="nav-map-btn">Mapa</a></li>
+                    <li class="dropdown-parent active">
+                        <button aria-haspopup="true" aria-expanded="false" aria-controls="dropdown-discover" data-i18n="nav.discover">Descubre BogotÃ¡</button>
+                        <ul id="dropdown-discover" role="menu" class="dropdown-menu">
+                            <li><a href="rutas.html" role="menuitem" tabindex="-1" data-i18n="nav.routes">Rutas TurÃ­sticas</a></li>
+                            <li class="active"><a href="experiencias.html" role="menuitem" tabindex="-1" data-i18n="nav.experiences">Experiencias Culturales</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="gastronomia.html" data-i18n="nav.gastronomy">GastronomÃ­a Bogotana</a></li>
+                    <li class="dropdown-parent">
+                        <button aria-haspopup="true" aria-expanded="false" aria-controls="dropdown-events" data-i18n="nav.events_section">Eventos</button>
+                        <ul id="dropdown-events" role="menu" class="dropdown-menu">
+                            <li><a href="eventos.html" role="menuitem" tabindex="-1" data-i18n="nav.events">Eventos y Comunidad</a></li>
+                            <li><a href="calendario.html" role="menuitem" tabindex="-1" data-i18n="nav.calendar">Calendario</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="mapa.html" data-i18n="nav.plan" class="nav-map-btn">Planifica tu visita</a></li>
                 </ul>
             </nav>
             <div class="header-tools">
@@ -45,7 +55,7 @@
         <section class="page-hero">
             <div class="container">
                 <h1 class="page-title" data-i18n="exp.page.title">Experiencias Culturales</h1>
-                <p class="page-subtitle" data-i18n="exp.page.subtitle">Sumérgete en la vibrante escena artística y tradicional de Bogotá.</p>
+                <p class="page-subtitle" data-i18n="exp.page.subtitle">SumÃ©rgete en la vibrante escena artÃ­stica y tradicional de BogotÃ¡.</p>
             </div>
         </section>
 
@@ -56,68 +66,68 @@
                     <img src="assets/images/Experiencias/MuseoBotero.png" alt="Museo Botero">
                     <div class="card-content">
                         <h3 data-i18n="exp.botero.title">Museo Botero</h3>
-                        <p data-i18n="exp.botero.shortDesc">El museo más visitado de Bogotá. Alberga la mayor colección de obras donadas por Fernando
+                        <p data-i18n="exp.botero.shortDesc">El museo mÃ¡s visitado de BogotÃ¡. Alberga la mayor colecciÃ³n de obras donadas por Fernando
                             Botero: 123 obras del maestro (pinturas y esculturas) y 85 de grandes artistas
-                            internacionales (Picasso, Dalí, Miró, etc.). Una experiencia íntima y emotiva en el corazón
+                            internacionales (Picasso, DalÃ­, MirÃ³, etc.). Una experiencia Ã­ntima y emotiva en el corazÃ³n
                             de La Candelaria.</p>
-                        <span class="info"><span data-i18n="modal.duration">Duración:</span> <span data-i18n="exp.botero.duration">2 horas</span></span>
+                        <span class="info"><span data-i18n="modal.duration">DuraciÃ³n:</span> <span data-i18n="exp.botero.duration">2 horas</span></span>
                     </div>
                 </article>
                 <article class="card" data-id="nacional" style="cursor: pointer;">
                     <img src="assets/images/Experiencias/MuseoNacional.jpg" alt="Museo Nacional">
                     <div class="card-content">
                         <h3 data-i18n="exp.nacional.title">Museo Nacional</h3>
-                        <p data-i18n="exp.nacional.shortDesc">El museo más antiguo de Colombia (1823). Recorre 2.500 años de historia nacional a través de
-                            arte, arqueología y objetos que cuentan la historia de la nación. Exposiciones permanentes y
-                            temporales de altísimo nivel.</p>
-                        <span class="info"><span data-i18n="modal.duration">Duración:</span> <span data-i18n="exp.nacional.duration">3 horas</span></span>
+                        <p data-i18n="exp.nacional.shortDesc">El museo mÃ¡s antiguo de Colombia (1823). Recorre 2.500 aÃ±os de historia nacional a travÃ©s de
+                            arte, arqueologÃ­a y objetos que cuentan la historia de la naciÃ³n. Exposiciones permanentes y
+                            temporales de altÃ­simo nivel.</p>
+                        <span class="info"><span data-i18n="modal.duration">DuraciÃ³n:</span> <span data-i18n="exp.nacional.duration">3 horas</span></span>
                     </div>
                 </article>
                 <article class="card" data-id="mambo" style="cursor: pointer;">
                     <img src="assets/images/Experiencias/MAMBO.jpg" alt="MAMBO">
                     <div class="card-content">
                         <h3 data-i18n="exp.mambo.title">MAMBO</h3>
-                        <p data-i18n="exp.mambo.shortDesc">El templo del arte contemporáneo en Colombia. Exposiciones temporales de artistas nacionales
-                            e internacionales, instalaciones interactivas y una colección permanente que refleja la
-                            evolución del arte moderno y contemporáneo del país.</p>
-                        <span class="info"><span data-i18n="modal.duration">Duración:</span> <span data-i18n="exp.mambo.duration">1.5 horas</span></span>
+                        <p data-i18n="exp.mambo.shortDesc">El templo del arte contemporÃ¡neo en Colombia. Exposiciones temporales de artistas nacionales
+                            e internacionales, instalaciones interactivas y una colecciÃ³n permanente que refleja la
+                            evoluciÃ³n del arte moderno y contemporÃ¡neo del paÃ­s.</p>
+                        <span class="info"><span data-i18n="modal.duration">DuraciÃ³n:</span> <span data-i18n="exp.mambo.duration">1.5 horas</span></span>
                     </div>
                 </article>
             </div>
 
-            <h2 data-i18n="exp.h2.tradicion">Tradición y Cultura Viva</h2>
+            <h2 data-i18n="exp.h2.tradicion">TradiciÃ³n y Cultura Viva</h2>
             <div class="grid-3">
                 <article class="card" data-id="tejo" style="cursor: pointer;">
                     <img src="assets/images/Experiencias/Tejo.jpg" alt="Juego de Tejo">
                     <div class="card-content">
                         <h3 data-i18n="exp.tejo.title">Juego de Tejo</h3>
                         <p data-i18n="exp.tejo.shortDesc">El deporte nacional de Colombia. Una experiencia explosiva, divertida y cultural donde lanzas
-                            un “mecha” contra un blanco lleno de pólvora. Combina tradición, competencia y fiesta.</p>
-                        <span class="info"><span data-i18n="modal.duration">Duración:</span> <span data-i18n="exp.tejo.duration">2 horas</span></span>
+                            un â€œmechaâ€ contra un blanco lleno de pÃ³lvora. Combina tradiciÃ³n, competencia y fiesta.</p>
+                        <span class="info"><span data-i18n="modal.duration">DuraciÃ³n:</span> <span data-i18n="exp.tejo.duration">2 horas</span></span>
                     </div>
                 </article>
                 <article class="card" data-id="cafe" style="cursor: pointer;">
                     <img src="assets/images/Experiencias/Cafe.jpg" alt="cafe">
                     <div class="card-content">
-                        <h3 data-i18n="exp.cafe.title">Experiencia de Cata de Café en Bogotá</h3>
-                        <p data-i18n="exp.cafe.shortDesc">Sumérgete en el alma de Colombia a través de su café. En esta experiencia sensorial guiada
-                            aprendes sobre el origen, tostado, preparación y catas profesionales mientras pruebas 4-6
-                            variedades premium de café colombiano (incluyendo exóticos como Geisha y Pink Bourbon). Es
-                            el plan perfecto para amantes del café y una de las experiencias más auténticas de Bogotá.
+                        <h3 data-i18n="exp.cafe.title">Experiencia de Cata de CafÃ© en BogotÃ¡</h3>
+                        <p data-i18n="exp.cafe.shortDesc">SumÃ©rgete en el alma de Colombia a travÃ©s de su cafÃ©. En esta experiencia sensorial guiada
+                            aprendes sobre el origen, tostado, preparaciÃ³n y catas profesionales mientras pruebas 4-6
+                            variedades premium de cafÃ© colombiano (incluyendo exÃ³ticos como Geisha y Pink Bourbon). Es
+                            el plan perfecto para amantes del cafÃ© y una de las experiencias mÃ¡s autÃ©nticas de BogotÃ¡.
                         </p>
-                        <span class="info"><span data-i18n="modal.duration">Duración:</span> <span data-i18n="exp.cafe.duration">3 horas</span></span>
+                        <span class="info"><span data-i18n="modal.duration">DuraciÃ³n:</span> <span data-i18n="exp.cafe.duration">3 horas</span></span>
                     </div>
                 </article>
                 <article class="card" data-id="gabo" style="cursor: pointer;">
                     <img src="assets/images/Experiencias/Gabo.jpg" alt="Casa de Gabo">
                     <div class="card-content">
-                        <h3 data-i18n="exp.gabo.title">Casa Museo de Gabo en Bogotá</h3>
-                        <p data-i18n="exp.gabo.shortDesc">El espacio cultural más importante dedicado a Gabriel García Márquez en la capital. Ubicado
-                            en La Candelaria, este edificio diseñado por Rogelio Salmona alberga exposiciones
-                            permanentes sobre la vida y obra del Nobel, una librería especializada del Fondo de Cultura
-                            Económica, auditorio y espacios interactivos donde revives el universo de Cien años de
-                            soledad y El amor en los tiempos del cólera.</p>
-                        <span class="info"><span data-i18n="modal.duration">Duración:</span> <span data-i18n="exp.gabo.duration">1 hora</span></span>
+                        <h3 data-i18n="exp.gabo.title">Casa Museo de Gabo en BogotÃ¡</h3>
+                        <p data-i18n="exp.gabo.shortDesc">El espacio cultural mÃ¡s importante dedicado a Gabriel GarcÃ­a MÃ¡rquez en la capital. Ubicado
+                            en La Candelaria, este edificio diseÃ±ado por Rogelio Salmona alberga exposiciones
+                            permanentes sobre la vida y obra del Nobel, una librerÃ­a especializada del Fondo de Cultura
+                            EconÃ³mica, auditorio y espacios interactivos donde revives el universo de Cien aÃ±os de
+                            soledad y El amor en los tiempos del cÃ³lera.</p>
+                        <span class="info"><span data-i18n="modal.duration">DuraciÃ³n:</span> <span data-i18n="exp.gabo.duration">1 hora</span></span>
                     </div>
                 </article>
             </div>
@@ -133,12 +143,12 @@
                 <div class="exp-modal-hero-overlay"></div>
             </div>
             <div class="exp-modal-body">
-                <h3 id="em-title">Título de la Experiencia</h3>
-                <p id="em-desc" class="exp-modal-desc">Descripción...</p>
+                <h3 id="em-title">TÃ­tulo de la Experiencia</h3>
+                <p id="em-desc" class="exp-modal-desc">DescripciÃ³n...</p>
                 <div class="exp-modal-info">
-                    <div class="info-item"><strong data-i18n="modal.duration">Duración:</strong> <span id="em-duration"></span></div>
+                    <div class="info-item"><strong data-i18n="modal.duration">DuraciÃ³n:</strong> <span id="em-duration"></span></div>
                     <div class="info-item"><strong data-i18n="modal.price">Precio:</strong> <span id="em-price"></span></div>
-                    <div class="info-item"><strong data-i18n="modal.howto">Cómo participar:</strong> <span id="em-howto"></span></div>
+                    <div class="info-item"><strong data-i18n="modal.howto">CÃ³mo participar:</strong> <span id="em-howto"></span></div>
                 </div>
                 <div class="exp-modal-recommendations">
                     <strong data-i18n="modal.recs">Recomendaciones:</strong>
@@ -153,7 +163,7 @@
     <div id="exp-map-modal" class="exp-modal-overlay exp-map-overlay">
         <div class="exp-modal-content map-modal-content">
             <button class="exp-modal-close alt-close" aria-label="Cerrar mapa">&times;</button>
-            <h3 id="em-map-title" class="map-modal-title" data-i18n="modal.location">Ubicación</h3>
+            <h3 id="em-map-title" class="map-modal-title" data-i18n="modal.location">UbicaciÃ³n</h3>
             <div id="em-leaflet-map" style="width:100%; height:400px; border-radius:8px;"></div>
             <button id="em-btn-back" class="btn btn-outline" style="margin-top: 1rem; width: 100%;" data-i18n="modal.btnBack">Volver a
                 detalles</button>

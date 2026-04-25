@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bogotá Explora | Gastronomía Bogotana</title>
+    <title>BogotÃ¡ Explora | GastronomÃ­a Bogotana</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <script src="https://unpkg.com/i18next@23.10.1/i18next.min.js"></script>
@@ -16,18 +16,28 @@
         <div class="container header-container">
             <div class="logo">
                 <a href="index.html">
-                    <img src="assets/images/Front/logo.jpg" alt="Bogotá Explora" class="logo-img"
+                    <img src="assets/images/Front/logo.jpg" alt="BogotÃ¡ Explora" class="logo-img"
                         onerror="this.src='https://via.placeholder.com/150x50?text=Bogot%C3%A1+Explora';">
                 </a>
             </div>
             <nav class="main-nav">
                 <ul>
-                    <li><a href="rutas.html" data-i18n="nav.routes">Rutas Turísticas</a></li>
-                    <li><a href="experiencias.html" data-i18n="nav.experiences">Experiencias Culturales</a></li>
-                    <li><a href="gastronomia.html" data-i18n="nav.gastronomy">Gastronomía Bogotana</a></li>
-                    <li><a href="eventos.html" data-i18n="nav.events">Eventos y Comunidad</a></li>
-                    <li><a href="calendario.html" data-i18n="nav.calendar">Calendario</a></li>
-                    <li><a href="mapa.html" data-i18n="nav.map" class="nav-map-btn">Mapa</a></li>
+                    <li class="dropdown-parent">
+                        <button aria-haspopup="true" aria-expanded="false" aria-controls="dropdown-discover" data-i18n="nav.discover">Descubre BogotÃ¡</button>
+                        <ul id="dropdown-discover" role="menu" class="dropdown-menu">
+                            <li><a href="rutas.html" role="menuitem" tabindex="-1" data-i18n="nav.routes">Rutas TurÃ­sticas</a></li>
+                            <li><a href="experiencias.html" role="menuitem" tabindex="-1" data-i18n="nav.experiences">Experiencias Culturales</a></li>
+                        </ul>
+                    </li>
+                    <li class="active"><a href="gastronomia.html" data-i18n="nav.gastronomy">GastronomÃ­a Bogotana</a></li>
+                    <li class="dropdown-parent">
+                        <button aria-haspopup="true" aria-expanded="false" aria-controls="dropdown-events" data-i18n="nav.events_section">Eventos</button>
+                        <ul id="dropdown-events" role="menu" class="dropdown-menu">
+                            <li><a href="eventos.html" role="menuitem" tabindex="-1" data-i18n="nav.events">Eventos y Comunidad</a></li>
+                            <li><a href="calendario.html" role="menuitem" tabindex="-1" data-i18n="nav.calendar">Calendario</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="mapa.html" data-i18n="nav.plan" class="nav-map-btn">Planifica tu visita</a></li>
                 </ul>
             </nav>
             <div class="header-tools">
@@ -44,22 +54,22 @@
     <main class="page-content">
         <section class="page-hero">
             <div class="container">
-                <h1 class="page-title" data-i18n="gastro.page.title">Gastronomía Bogotana</h1>
-                <p class="page-subtitle" data-i18n="gastro.page.subtitle">Los sabores que definen a Bogotá, desde la comida de calle hasta la alta
+                <h1 class="page-title" data-i18n="gastro.page.title">GastronomÃ­a Bogotana</h1>
+                <p class="page-subtitle" data-i18n="gastro.page.subtitle">Los sabores que definen a BogotÃ¡, desde la comida de calle hasta la alta
                     cocina.</p>
             </div>
         </section>
 
         <section class="experiences-section container">
-            <h2 data-i18n="gastro.h2.tipicos">Platos Típicos</h2>
+            <h2 data-i18n="gastro.h2.tipicos">Platos TÃ­picos</h2>
             <div class="grid-3">
                 <article class="card" data-id="ajiaco" style="cursor: pointer;">
                     <img src="assets/images/Gastronomia/Ajiaco.jpg" alt="Ajiaco">
                     <div class="card-content">
-                        <h3 data-i18n="gastro.ajiaco.title">Ajiaco Santafereño</h3>
-                        <p data-i18n="gastro.ajiaco.shortDesc">El ajiaco bogotano o santafereño es una sopa típica y tradicional de la región de Bogotá,
-                            Cundinamarca, Colombia,​a base de pollo y diferentes clases de papa.</p>
-                        <span class="info"><span data-i18n="modal.duration">Duración:</span> <span data-i18n="gastro.ajiaco.duration">1.5 horas</span></span>
+                        <h3 data-i18n="gastro.ajiaco.title">Ajiaco SantafereÃ±o</h3>
+                        <p data-i18n="gastro.ajiaco.shortDesc">El ajiaco bogotano o santafereÃ±o es una sopa tÃ­pica y tradicional de la regiÃ³n de BogotÃ¡,
+                            Cundinamarca, Colombia,â€‹a base de pollo y diferentes clases de papa.</p>
+                        <span class="info"><span data-i18n="modal.duration">DuraciÃ³n:</span> <span data-i18n="gastro.ajiaco.duration">1.5 horas</span></span>
                     </div>
                 </article>
                 <article class="card" data-id="tamal" style="cursor: pointer;">
@@ -67,51 +77,51 @@
                     <div class="card-content">
                         <h3 data-i18n="gastro.tamal.title">Tamal con Chocolate</h3>
                         <p data-i18n="gastro.tamal.shortDesc">El desayuno bogotano por excelencia.</p>
-                        <span class="info"><span data-i18n="modal.duration">Duración:</span> <span data-i18n="gastro.tamal.duration">1 hora</span></span>
+                        <span class="info"><span data-i18n="modal.duration">DuraciÃ³n:</span> <span data-i18n="gastro.tamal.duration">1 hora</span></span>
                     </div>
                 </article>
                 <article class="card" data-id="arepa" style="cursor: pointer;">
                     <img src="assets/images/Gastronomia/Arepa.jpg" alt="Arepa de Huevo">
                     <div class="card-content">
                         <h3 data-i18n="gastro.arepa.title">Arepa de Huevo</h3>
-                        <p data-i18n="gastro.arepa.shortDesc">El desayuno callejero más auténtico y explosivo de Bogotá. Una arepa de maíz crujiente
-                            rellena de huevo fresco que se fríe al momento, servida con hogao, ají y a veces queso o
+                        <p data-i18n="gastro.arepa.shortDesc">El desayuno callejero mÃ¡s autÃ©ntico y explosivo de BogotÃ¡. Una arepa de maÃ­z crujiente
+                            rellena de huevo fresco que se frÃ­e al momento, servida con hogao, ajÃ­ y a veces queso o
                             carne.</p>
-                        <span class="info"><span data-i18n="modal.duration">Duración:</span> <span data-i18n="gastro.arepa.duration">45 mins</span></span>
+                        <span class="info"><span data-i18n="modal.duration">DuraciÃ³n:</span> <span data-i18n="gastro.arepa.duration">45 mins</span></span>
                     </div>
                 </article>
             </div>
 
-            <h2 data-i18n="gastro.h2.zonas">Zonas Gastronómicas</h2>
+            <h2 data-i18n="gastro.h2.zonas">Zonas GastronÃ³micas</h2>
             <div class="grid-3">
                 <article class="card" data-id="zonag" style="cursor: pointer;">
                     <img src="assets/images/Gastronomia/ZonaG.jpg" alt="Zona G">
                     <div class="card-content">
                         <h3 data-i18n="gastro.zonag.title">Zona G</h3>
-                        <p data-i18n="gastro.zonag.shortDesc">El barrio gourmet por excelencia de Bogotá. Calles llenas de restaurantes de alta cocina,
-                            fusión, internacional y colombiana moderna. Ambiente elegante pero relajado, ideal para
+                        <p data-i18n="gastro.zonag.shortDesc">El barrio gourmet por excelencia de BogotÃ¡. Calles llenas de restaurantes de alta cocina,
+                            fusiÃ³n, internacional y colombiana moderna. Ambiente elegante pero relajado, ideal para
                             cenas especiales.</p>
-                        <span class="info"><span data-i18n="modal.duration">Duración:</span> <span data-i18n="gastro.zonag.duration">2 horas</span></span>
+                        <span class="info"><span data-i18n="modal.duration">DuraciÃ³n:</span> <span data-i18n="gastro.zonag.duration">2 horas</span></span>
                     </div>
                 </article>
                 <article class="card" data-id="macarena" style="cursor: pointer;">
                     <img src="assets/images/Gastronomia/Macarena.png" alt="La Macarena">
                     <div class="card-content">
                         <h3 data-i18n="gastro.macarena.title">La Macarena</h3>
-                        <p data-i18n="gastro.macarena.shortDesc">La Macarena es un barrio bohemio y emblemático en el centro de Bogotá (localidad de Santa
-                            Fe), conocido como la "Zona M" por su vibrante oferta gastronómica internacional y
-                            artística. Destaca por su arquitectura estilo inglés y casas coloridas, la proximidad al
-                            Parque Nacional, las Torres del Parque y el Planetario de Bogotá. </p>
-                        <span class="info"><span data-i18n="modal.duration">Duración:</span> <span data-i18n="gastro.macarena.duration">2.5 horas</span></span>
+                        <p data-i18n="gastro.macarena.shortDesc">La Macarena es un barrio bohemio y emblemÃ¡tico en el centro de BogotÃ¡ (localidad de Santa
+                            Fe), conocido como la "Zona M" por su vibrante oferta gastronÃ³mica internacional y
+                            artÃ­stica. Destaca por su arquitectura estilo inglÃ©s y casas coloridas, la proximidad al
+                            Parque Nacional, las Torres del Parque y el Planetario de BogotÃ¡. </p>
+                        <span class="info"><span data-i18n="modal.duration">DuraciÃ³n:</span> <span data-i18n="gastro.macarena.duration">2.5 horas</span></span>
                     </div>
                 </article>
                 <article class="card" data-id="plazas" style="cursor: pointer;">
                     <img src="assets/images/Gastronomia/plaza.jpg" alt="Plazas de Mercado">
                     <div class="card-content">
                         <h3 data-i18n="gastro.plazas.title">Plazas de Mercado</h3>
-                        <p data-i18n="gastro.plazas.shortDesc">El corazón gastronómico real de Bogotá. Frutas exóticas, hierbas aromáticas, carnes, mariscos
-                            frescos y comida preparada al momento. Es la Bogotá más auténtica y vibrante.</p>
-                        <span class="info"><span data-i18n="modal.duration">Duración:</span> <span data-i18n="gastro.plazas.duration">3 horas</span></span>
+                        <p data-i18n="gastro.plazas.shortDesc">El corazÃ³n gastronÃ³mico real de BogotÃ¡. Frutas exÃ³ticas, hierbas aromÃ¡ticas, carnes, mariscos
+                            frescos y comida preparada al momento. Es la BogotÃ¡ mÃ¡s autÃ©ntica y vibrante.</p>
+                        <span class="info"><span data-i18n="modal.duration">DuraciÃ³n:</span> <span data-i18n="gastro.plazas.duration">3 horas</span></span>
                     </div>
                 </article>
             </div>
@@ -123,8 +133,8 @@
                     <div class="card-content">
                         <h3 data-i18n="gastro.taller.title">Taller de Cocina Bogotana</h3>
                         <p data-i18n="gastro.taller.shortDesc">Una experiencia interactiva y deliciosa donde aprendes a preparar platos tradicionales de
-                            Bogotá con un chef local.</p>
-                        <span class="info"><span data-i18n="modal.duration">Duración:</span> <span data-i18n="gastro.taller.duration">3 horas</span></span>
+                            BogotÃ¡ con un chef local.</p>
+                        <span class="info"><span data-i18n="modal.duration">DuraciÃ³n:</span> <span data-i18n="gastro.taller.duration">3 horas</span></span>
                     </div>
                 </article>
             </div>
@@ -140,12 +150,12 @@
                 <div class="gastro-modal-hero-overlay"></div>
             </div>
             <div class="gastro-modal-body">
-                <h3 id="gm-title">Título de la Gastronomía</h3>
-                <p id="gm-desc" class="gastro-modal-desc">Descripción...</p>
+                <h3 id="gm-title">TÃ­tulo de la GastronomÃ­a</h3>
+                <p id="gm-desc" class="gastro-modal-desc">DescripciÃ³n...</p>
                 <div class="gastro-modal-info">
-                    <div class="info-item"><strong data-i18n="modal.duration">Duración:</strong> <span id="gm-duration"></span></div>
+                    <div class="info-item"><strong data-i18n="modal.duration">DuraciÃ³n:</strong> <span id="gm-duration"></span></div>
                     <div class="info-item"><strong data-i18n="modal.price">Precio:</strong> <span id="gm-price"></span></div>
-                    <div class="info-item"><strong data-i18n="modal.howto.alt">Cómo participar:</strong> <span id="gm-howto"></span></div>
+                    <div class="info-item"><strong data-i18n="modal.howto.alt">CÃ³mo participar:</strong> <span id="gm-howto"></span></div>
                 </div>
                 <div class="gastro-modal-recommendations">
                     <strong data-i18n="modal.recs">Recomendaciones:</strong>
@@ -160,7 +170,7 @@
     <div id="gastro-map-modal" class="gastro-modal-overlay gastro-map-overlay">
         <div class="gastro-modal-content map-modal-content">
             <button class="gastro-modal-close alt-close" aria-label="Cerrar mapa">&times;</button>
-            <h3 id="gm-map-title" class="map-modal-title" data-i18n="modal.location">Ubicación</h3>
+            <h3 id="gm-map-title" class="map-modal-title" data-i18n="modal.location">UbicaciÃ³n</h3>
             <div id="gm-leaflet-map" style="width:100%; height:400px; border-radius:8px;"></div>
             <button id="gm-btn-back" class="btn btn-outline" style="margin-top: 1rem; width: 100%;" data-i18n="modal.btnBack">Volver a
                 detalles</button>

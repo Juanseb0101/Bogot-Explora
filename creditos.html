@@ -1,0 +1,170 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="credits.title">CrÃ©ditos y fuentes | BogotÃ¡ Explora</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Libraries CDN -->
+    <script src="https://unpkg.com/i18next@23.10.1/i18next.min.js"></script>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container header-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="assets/images/Front/logo.jpg" alt="BogotÃ¡ Explora" class="logo-img">
+                </a>
+            </div>
+
+            <nav class="main-nav">
+                <ul>
+                    <li class="dropdown-parent">
+                        <button aria-haspopup="true" aria-expanded="false" aria-controls="dropdown-discover" data-i18n="nav.discover">Descubre
+                            BogotÃ¡</button>
+                        <ul id="dropdown-discover" role="menu" class="dropdown-menu">
+                            <li><a href="rutas.html" role="menuitem" tabindex="-1" data-i18n="nav.routes">Rutas TurÃ­sticas</a></li>
+                            <li><a href="experiencias.html" role="menuitem" tabindex="-1" data-i18n="nav.experiences">Experiencias Culturales</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="gastronomia.html" data-i18n="nav.gastronomy">GastronomÃ­a Bogotana</a></li>
+                    <li class="dropdown-parent">
+                        <button aria-haspopup="true" aria-expanded="false"
+                            aria-controls="dropdown-events" data-i18n="nav.events_section">Eventos</button>
+                        <ul id="dropdown-events" role="menu" class="dropdown-menu">
+                            <li><a href="eventos.html" role="menuitem" tabindex="-1" data-i18n="nav.events">Eventos y Comunidad</a></li>
+                            <li><a href="calendario.html" role="menuitem" tabindex="-1" data-i18n="nav.calendar">Calendario</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="mapa.html" data-i18n="nav.plan" class="nav-map-btn">Planifica tu visita</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-tools">
+                <div class="city-info">
+                    <span class="city-name">BogotÃ¡, Colombia</span>
+                    <span id="current-time" class="time"></span>
+                    <span id="current-temp" class="temp"></span>
+                </div>
+                <div class="lang-switcher">
+                    <select id="lang-selector" aria-label="Cambiar idioma">
+                        <option value="es">ES</option>
+                        <option value="en">EN</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="credits-hero">
+            <div class="container">
+                <h1 data-i18n="credits.title">CrÃ©ditos y fuentes</h1>
+                <p data-i18n="credits.subtitle">BogotÃ¡ Explora es un proyecto acadÃ©mico. A continuaciÃ³n se relacionan todos los recursos utilizados en su desarrollo: imÃ¡genes, textos, herramientas y tecnologÃ­as.</p>
+            </div>
+        </section>
+
+        <section class="credits-section">
+            <div class="container">
+                <article class="credit-row">
+                    <div class="credit-thumb">
+                        ðŸ“·
+                    </div>
+                    <div class="credit-meta">
+                        <span class="credit-category" data-i18n="credits.category.photo">FotografÃ­a</span>
+                        <h3 class="credit-name">Pexels</h3>
+                    </div>
+                    <div class="credit-detail">
+                        <p data-i18n="credits.pexelsText">FotografÃ­as obtenidas de Pexels, plataforma de imÃ¡genes gratuitas bajo licencia Pexels License, que permite uso libre sin atribuciÃ³n obligatoria para proyectos personales y acadÃ©micos.</p>
+                        <a href="https://www.pexels.com" target="_blank" class="credit-link" data-i18n="credits.visitSite">Visitar sitio â†’</a>
+                    </div>
+                </article>
+
+                <article class="credit-row">
+                    <div class="credit-thumb">
+                        ðŸ–¼ï¸
+                    </div>
+                    <div class="credit-meta">
+                        <span class="credit-category" data-i18n="credits.category.photo">FotografÃ­a</span>
+                        <h3 class="credit-name">Pixabay</h3>
+                    </div>
+                    <div class="credit-detail">
+                        <p data-i18n="credits.pixabayText">FotografÃ­as obtenidas de Pixabay, plataforma de imÃ¡genes bajo licencia Pixabay License (Content License), de uso libre sin restricciones para proyectos no comerciales y acadÃ©micos.</p>
+                        <a href="https://www.pixabay.com" target="_blank" class="credit-link" data-i18n="credits.visitSite">Visitar sitio â†’</a>
+                    </div>
+                </article>
+
+                <article class="credit-row">
+                    <div class="credit-thumb">
+                        ðŸ”
+                    </div>
+                    <div class="credit-meta">
+                        <span class="credit-category" data-i18n="credits.category.photo">FotografÃ­a</span>
+                        <h3 class="credit-name">Google Images</h3>
+                    </div>
+                    <div class="credit-detail">
+                        <p data-i18n="credits.googleText">Algunas imÃ¡genes fueron localizadas mediante Google Images como motor de bÃºsqueda.</p>
+                        <span class="credit-warning" data-i18n="credits.googleWarning">Pendiente: verificar la licencia original de cada imagen obtenida por esta vÃ­a.</span>
+                        <a href="https://images.google.com" target="_blank" class="credit-link" data-i18n="credits.visitSite">Visitar sitio â†’</a>
+                    </div>
+                </article>
+
+                <article class="credit-row">
+                    <div class="credit-thumb">
+                        âœï¸
+                    </div>
+                    <div class="credit-meta">
+                        <span class="credit-category" data-i18n="credits.category.content">Textos e investigaciÃ³n</span>
+                        <h3 class="credit-name">Grok (xAI)</h3>
+                    </div>
+                    <div class="credit-detail">
+                        <p data-i18n="credits.grokText">Los textos descriptivos, datos turÃ­sticos e investigaciÃ³n de contenidos fueron generados con el apoyo de Grok, asistente de inteligencia artificial desarrollado por xAI. Los contenidos fueron revisados y validados por el autor del proyecto.</p>
+                        <a href="https://grok.com" target="_blank" class="credit-link" data-i18n="credits.visitSite">Visitar sitio â†’</a>
+                    </div>
+                </article>
+
+                <article class="credit-row">
+                    <div class="credit-thumb">
+                        ðŸ”¤
+                    </div>
+                    <div class="credit-meta">
+                        <span class="credit-category" data-i18n="credits.category.typography">TipografÃ­a</span>
+                        <h3 class="credit-name">Google Fonts</h3>
+                    </div>
+                    <div class="credit-detail">
+                        <p data-i18n="credits.fontsText">El proyecto utiliza dos familias tipogrÃ¡ficas importadas desde Google Fonts: Inter (sans-serif, pesos 300â€“600) como tipografÃ­a principal, y Playfair Display (serif, pesos 400â€“700) para encabezados. Ambas bajo licencia SIL Open Font License.</p>
+                        <a href="https://fonts.google.com" target="_blank" class="credit-link" data-i18n="credits.visitSite">Visitar sitio â†’</a>
+                    </div>
+                </article>
+
+                <article class="credit-row">
+                    <div class="credit-thumb">
+                        ðŸ—ºï¸
+                    </div>
+                    <div class="credit-meta">
+                        <span class="credit-category" data-i18n="credits.category.map">Mapa interactivo</span>
+                        <h3 class="credit-name">Leaflet + OpenStreetMap</h3>
+                    </div>
+                    <div class="credit-detail">
+                        <p data-i18n="credits.mapText">El mapa interactivo utiliza Leaflet v1.9.4, biblioteca de cÃ³digo abierto bajo licencia BSD-2-Clause. Los datos geogrÃ¡ficos y la cartografÃ­a base provienen de OpenStreetMap, proyecto colaborativo bajo licencia ODbL (Open Database License).</p>
+                        <a href="https://leafletjs.com" target="_blank" class="credit-link" data-i18n="credits.visitSite">Visitar sitio â†’</a><br>
+                        <a href="https://www.openstreetmap.org" target="_blank" class="credit-link" data-i18n="credits.visitOSM">Visitar OpenStreetMap â†’</a>
+                    </div>
+                </article>
+
+                <p class="credits-footer-note" data-i18n="credits.footerNote">Este sitio fue desarrollado con fines acadÃ©micos. Todos los recursos han sido utilizados respetando sus condiciones de uso y licencias correspondientes.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- JS -->
+    <script src="js/translations.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
+

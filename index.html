@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bogotá Explora | Inicio</title>
+    <title>BogotÃ¡ Explora | Inicio</title>
     <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
     <!-- Libraries CDN -->
@@ -18,24 +18,41 @@
         <div class="container header-container">
             <div class="logo">
                 <a href="index.html">
-                    <img src="assets/images/Front/logo.jpg" alt="Bogotá Explora" class="logo-img">
+                    <img src="assets/images/Front/logo.jpg" alt="BogotÃ¡ Explora" class="logo-img">
                 </a>
             </div>
 
             <nav class="main-nav">
                 <ul>
-                    <li><a href="rutas.html" data-i18n="nav.routes">Rutas Turísticas</a></li>
-                    <li><a href="experiencias.html" data-i18n="nav.experiences">Experiencias Culturales</a></li>
-                    <li><a href="gastronomia.html" data-i18n="nav.gastronomy">Gastronomía Bogotana</a></li>
-                    <li><a href="eventos.html" data-i18n="nav.events">Eventos y Comunidad</a></li>
-                    <li><a href="calendario.html" data-i18n="nav.calendar">Calendario</a></li>
-                    <li><a href="mapa.html" data-i18n="nav.map" class="nav-map-btn">Mapa</a></li>
+                    <li class="dropdown-parent">
+                        <button aria-haspopup="true" aria-expanded="false" aria-controls="dropdown-discover"
+                            data-i18n="nav.discover">Descubre
+                            BogotÃ¡</button>
+                        <ul id="dropdown-discover" role="menu" class="dropdown-menu">
+                            <li><a href="rutas.html" role="menuitem" tabindex="-1" data-i18n="nav.routes">Rutas
+                                    TurÃ­sticas</a></li>
+                            <li><a href="experiencias.html" role="menuitem" tabindex="-1"
+                                    data-i18n="nav.experiences">Experiencias Culturales</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="gastronomia.html" data-i18n="nav.gastronomy">GastronomÃ­a Bogotana</a></li>
+                    <li class="dropdown-parent">
+                        <button aria-haspopup="true" aria-expanded="false" aria-controls="dropdown-events"
+                            data-i18n="nav.events_section">Eventos</button>
+                        <ul id="dropdown-events" role="menu" class="dropdown-menu">
+                            <li><a href="eventos.html" role="menuitem" tabindex="-1" data-i18n="nav.events">Eventos y
+                                    Comunidad</a></li>
+                            <li><a href="calendario.html" role="menuitem" tabindex="-1"
+                                    data-i18n="nav.calendar">Calendario</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="mapa.html" data-i18n="nav.plan" class="nav-map-btn">Planifica tu visita</a></li>
                 </ul>
             </nav>
 
             <div class="header-tools">
                 <div class="city-info">
-                    <span class="city-name">Bogotá, Colombia</span>
+                    <span class="city-name">BogotÃ¡, Colombia</span>
                     <span id="current-time" class="time"></span>
                     <span id="current-temp" class="temp"></span>
                 </div>
@@ -56,20 +73,22 @@
             <div class="container hero-container">
                 <div class="hero-content">
                     <h2 class="subtitle" data-i18n="hero.subtitle">EXPLORA, VIVE, REGRESA</h2>
-                    <h1 class="title" data-i18n="hero.title">Descubriendo Bogotá: experiencias auténticas que
+                    <h1 class="title" data-i18n="hero.title">Descubriendo BogotÃ¡: experiencias autÃ©nticas que
                         transforman viajes</h1>
 
                     <div class="stats-box">
-                        <p data-i18n="hero.stats">+1.9 Millones de visitantes internacionales en 2025 • 56% por cultura
-                            y gastronomía • Principal destino urbano de Sudamérica</p>
+                        <p data-i18n="hero.stats">+1.9 Millones de visitantes internacionales en 2025 â€¢ 56% por
+                            cultura
+                            y gastronomÃ­a â€¢ Principal destino urbano de SudamÃ©rica</p>
                     </div>
 
-                    <a href="rutas.html" class="btn btn-primary" data-i18n="hero.btn">Comienza tu aventura en Bogotá
+                    <a href="rutas.html" class="btn btn-primary" data-i18n="hero.btn">Comienza tu aventura en BogotÃ¡
                         &rarr;</a>
                 </div>
 
                 <div class="hero-image-wrapper">
-                    <img src="assets/images/Front/ImagenFront.jpg" alt="Bogotá Explorando la ciudad" class="hero-image">
+                    <img src="assets/images/Front/ImagenFront.jpg" alt="BogotÃ¡ Explorando la ciudad"
+                        class="hero-image">
                 </div>
             </div>
         </section>

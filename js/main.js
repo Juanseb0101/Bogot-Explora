@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initI18n();
     initHeaderScroll();
     initFooter();
+    initDropdowns(); // WCAG - inicializar accesibilidad de dropdowns
 });
 
 // Update Bogotá Time
@@ -123,27 +124,12 @@ function initFooter() {
                         <ul>
                             <li><a href="https://visitbogota.co/es/" target="_blank" rel="noopener" data-i18n="footer.col2.link1">Visita Bogotá</a></li>
                             <li><a href="mapa.html" data-i18n="footer.col2.link2">Mapa Interactivo</a></li>
-                            <li><a href="https://visitbogota.co/es/informacion-al-viajero" target="_blank" rel="noopener" data-i18n="footer.col2.link3">Información al viajero</a></li>
-                            <li><a href="https://www.capitalgraffititours.com/" target="_blank" rel="noopener" data-i18n="footer.col2.link4">Reservas y Tours</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-col">
-                        <h4 data-i18n="footer.col3.title">Comunidad Local</h4>
-                        <ul>
-                            <li><a href="https://bogota.gov.co/que-hacer/agenda-cultural" target="_blank" rel="noopener" data-i18n="footer.col3.link1">Agenda Cultural</a></li>
-                            <li><a href="https://visitbogota.co/es/experiencias-turisticas/encuentra-tu-plan?categories=246" target="_blank" rel="noopener" data-i18n="footer.col3.link2">Alojamiento</a></li>
-                            <li><a href="https://visitbogota.co/es/blog" target="_blank" rel="noopener" data-i18n="footer.col3.link3">Blog y Tips</a></li>
-                            <li><a href="https://visitbogota.co/es/explora/teatros/210" target="_blank" rel="noopener" data-i18n="footer.col3.link4">Únete a la Comunidad</a></li>
                         </ul>
                     </div>
                     <div class="footer-col">
                         <h4 data-i18n="footer.col4.title">Soporte y Legal</h4>
                         <ul>
-                            <li><a href="#" data-i18n="footer.col4.link1">Contacto</a></li>
-                            <li><a href="#" data-i18n="footer.col4.link2">Preguntas Frecuentes</a></li>
-                            <li><a href="#" data-i18n="footer.col4.link3">Términos de Uso</a></li>
-                            <li><a href="#" data-i18n="footer.col4.link4">Política de Privacidad</a></li>
-                            <li><a href="#" data-i18n="footer.col4.link5">Accesibilidad</a></li>
+                            <li><a href="creditos.html" data-i18n="credits.title">Créditos y fuentes</a></li>
                         </ul>
                     </div>
                 </div>
@@ -175,4 +161,208 @@ function initFooter() {
     if (window.i18next && i18next.isInitialized) {
         updateContent();
     }
+}
+
+// ============================================================
+// WCAG - Dropdown Navigation Accesible
+// Patrón: WAI-ARIA Disclosure Navigation Menu
+// Criterios cubiertos: 2.1.1, 2.1.2, 2.4.3, 2.4.7, 4.1.2
+// ============================================================
+function initDropdowns() {
+    const nav = document.querySelector('.main-nav');
+    if (!nav) return;
+
+    // WCAG - Referencias únicas a todos los botones padre de dropdown
+    const dropdownButtons = Array.from(
+        nav.querySelectorAll('.dropdown-parent > button')
+    );
+
+    // WCAG - Asegurar tabindex=-1 en todos los ítems hijos al cargar
+    nav.querySelectorAll('.dropdown-menu [role="menuitem"]').forEach(item => {
+        item.setAttribute('tabindex', '-1');
+    });
+
+    // ----------------------------------------------------------
+    // WCAG - Helpers: abrir / cerrar un dropdown
+    // ----------------------------------------------------------
+
+    /**
+     * Abre el dropdown asociado al botón dado.
+     * @param {HTMLButtonElement} btn - Botón padre del dropdown
+     */
+    function openDropdown(btn) {
+        const parent = btn.closest('.dropdown-parent');
+        if (!parent) return;
+        parent.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+        // WCAG - Hacer accesibles los ítems hijos vía teclado
+        const menuItems = getMenuItems(btn);
+        menuItems.forEach(item => item.setAttribute('tabindex', '0'));
+    }
+
+    /**
+     * Cierra el dropdown asociado al botón dado.
+     * @param {HTMLButtonElement} btn - Botón padre del dropdown
+     * @param {boolean} [returnFocus=false] - Si true, devuelve el foco al botón
+     */
+    function closeDropdown(btn, returnFocus = false) {
+        const parent = btn.closest('.dropdown-parent');
+        if (!parent) return;
+        parent.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+        // WCAG - Quitar los ítems hijos del flujo de Tab al cerrarse
+        const menuItems = getMenuItems(btn);
+        menuItems.forEach(item => item.setAttribute('tabindex', '-1'));
+        if (returnFocus) btn.focus();
+    }
+
+    /**
+     * Cierra todos los dropdowns abiertos.
+     * @param {boolean} [returnFocus=false]
+     */
+    function closeAll(returnFocus = false) {
+        dropdownButtons.forEach(btn => {
+            if (btn.getAttribute('aria-expanded') === 'true') {
+                closeDropdown(btn, returnFocus);
+            }
+        });
+    }
+
+    /**
+     * Devuelve el NodeList de ítems [role="menuitem"] del dropdown
+     * controlado por el botón.
+     * @param {HTMLButtonElement} btn
+     * @returns {Element[]}
+     */
+    function getMenuItems(btn) {
+        const menuId = btn.getAttribute('aria-controls');
+        if (!menuId) return [];
+        const menu = document.getElementById(menuId);
+        if (!menu) return [];
+        return Array.from(menu.querySelectorAll('[role="menuitem"]'));
+    }
+
+    // ----------------------------------------------------------
+    // WCAG - Event Delegation desde el <nav>
+    // Captura clic, keydown en botones padre e ítems hijo
+    // ----------------------------------------------------------
+    nav.addEventListener('keydown', (e) => {
+        const target = e.target;
+
+        // --- Teclas sobre el botón padre del dropdown ---
+        if (target.matches('.dropdown-parent > button')) {
+            const isExpanded = target.getAttribute('aria-expanded') === 'true';
+            const menuItems = getMenuItems(target);
+
+            switch (e.key) {
+                case 'Enter':
+                case ' ': // WCAG - Enter/Space: abrir y enfocar primer ítem
+                    e.preventDefault();
+                    if (isExpanded) {
+                        closeDropdown(target, true);
+                    } else {
+                        closeAll();
+                        openDropdown(target);
+                        if (menuItems.length) menuItems[0].focus();
+                    }
+                    break;
+
+                case 'ArrowDown': // WCAG - Flecha abajo: abrir y enfocar primer ítem
+                    e.preventDefault();
+                    closeAll();
+                    openDropdown(target);
+                    if (menuItems.length) menuItems[0].focus();
+                    break;
+
+                case 'ArrowUp': // WCAG - Flecha arriba: abrir y enfocar último ítem
+                    e.preventDefault();
+                    closeAll();
+                    openDropdown(target);
+                    if (menuItems.length) menuItems[menuItems.length - 1].focus();
+                    break;
+
+                case 'Escape': // WCAG - Escape: cerrar y volver al botón
+                    e.preventDefault();
+                    closeDropdown(target, true);
+                    break;
+            }
+            return;
+        }
+
+        // --- Teclas dentro de un ítem hijo [role="menuitem"] ---
+        if (target.matches('.dropdown-menu [role="menuitem"]')) {
+            // Encontrar el botón padre del dropdown que contiene este ítem
+            const parentDropdown = target.closest('.dropdown-parent');
+            if (!parentDropdown) return;
+            const parentBtn = parentDropdown.querySelector(':scope > button');
+            if (!parentBtn) return;
+            const menuItems = getMenuItems(parentBtn);
+            const currentIndex = menuItems.indexOf(target);
+
+            switch (e.key) {
+                case 'ArrowDown': // WCAG - Flecha abajo: siguiente ítem (cíclico)
+                    e.preventDefault();
+                    menuItems[(currentIndex + 1) % menuItems.length].focus();
+                    break;
+
+                case 'ArrowUp': // WCAG - Flecha arriba: ítem anterior (cíclico)
+                    e.preventDefault();
+                    menuItems[(currentIndex - 1 + menuItems.length) % menuItems.length].focus();
+                    break;
+
+                case 'Home': // WCAG - Home: primer ítem
+                    e.preventDefault();
+                    menuItems[0].focus();
+                    break;
+
+                case 'End': // WCAG - End: último ítem
+                    e.preventDefault();
+                    menuItems[menuItems.length - 1].focus();
+                    break;
+
+                case 'Escape': // WCAG - Escape: cerrar y volver al botón padre
+                    e.preventDefault();
+                    closeDropdown(parentBtn, true);
+                    break;
+
+                case 'Tab': // WCAG - Tab/Shift+Tab: cerrar dropdown al salir
+                    closeDropdown(parentBtn, false);
+                    break;
+            }
+            return;
+        }
+    });
+
+    // WCAG - Clic en el botón padre: abrir/cerrar con teclado+ratón
+    nav.addEventListener('click', (e) => {
+        const btn = e.target.closest('.dropdown-parent > button');
+        if (!btn) return;
+        const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+        // Cerrar todos los demás antes de abrir el actual
+        dropdownButtons.forEach(b => {
+            if (b !== btn) closeDropdown(b);
+        });
+        if (isExpanded) {
+            closeDropdown(btn);
+        } else {
+            openDropdown(btn);
+        }
+    });
+
+    // WCAG - Clic fuera del nav: cerrar todos los dropdowns
+    document.addEventListener('click', (e) => {
+        if (!nav.contains(e.target)) {
+            closeAll();
+        }
+    });
+
+    // WCAG - Foco sale del nav por Tab (focusout en el nav)
+    // Cierra el dropdown cuando el foco sale completamente del nav
+    nav.addEventListener('focusout', (e) => {
+        // relatedTarget es el elemento que RECIBE el foco
+        // Si el nuevo foco está fuera del nav, cerramos todos
+        if (!nav.contains(e.relatedTarget)) {
+            closeAll();
+        }
+    });
 }

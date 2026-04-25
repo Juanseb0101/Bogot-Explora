@@ -1,21 +1,15 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bogotá Explora | Mapa de la Ciudad</title>
+    <title>BogotÃ¡ Explora | Mapa de la Ciudad</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <script src="https://unpkg.com/i18next@23.10.1/i18next.min.js"></script>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <style>
-        .full-map {
-            width: 100%;
-            height: calc(100vh - var(--header-height));
-            margin-top: var(--header-height);
-        }
-    </style>
+
 </head>
 
 <body>
@@ -23,19 +17,29 @@
         <div class="container header-container">
             <div class="logo">
                 <a href="index.html">
-                    <img src="assets/images/Front/logo.jpg" alt="Bogotá Explora" class="logo-img"
+                    <img src="assets/images/Front/logo.jpg" alt="BogotÃ¡ Explora" class="logo-img"
                         onerror="this.src='https://via.placeholder.com/150x50?text=Bogot%C3%A1+Explora';">
                 </a>
             </div>
             <nav class="main-nav">
                 <ul>
-                    <li><a href="rutas.html" data-i18n="nav.routes">Rutas Turísticas</a></li>
-                    <li><a href="experiencias.html" data-i18n="nav.experiences">Experiencias Culturales</a></li>
-                    <li><a href="gastronomia.html" data-i18n="nav.gastronomy">Gastronomía Bogotana</a></li>
-                    <li><a href="eventos.html" data-i18n="nav.events">Eventos y Comunidad</a></li>
-                    <li><a href="calendario.html" data-i18n="nav.calendar">Calendario</a></li>
-                    <li><a href="mapa.html" data-i18n="nav.map" class="nav-map-btn"
-                            style="color:var(--color-accent);">Mapa</a></li>
+                    <li class="dropdown-parent">
+                        <button aria-haspopup="true" aria-expanded="false" aria-controls="dropdown-discover" data-i18n="nav.discover">Descubre BogotÃ¡</button>
+                        <ul id="dropdown-discover" role="menu" class="dropdown-menu">
+                            <li><a href="rutas.html" role="menuitem" tabindex="-1" data-i18n="nav.routes">Rutas TurÃ­sticas</a></li>
+                            <li><a href="experiencias.html" role="menuitem" tabindex="-1" data-i18n="nav.experiences">Experiencias Culturales</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="gastronomia.html" data-i18n="nav.gastronomy">GastronomÃ­a Bogotana</a></li>
+                    <li class="dropdown-parent">
+                        <button aria-haspopup="true" aria-expanded="false" aria-controls="dropdown-events" data-i18n="nav.events_section">Eventos</button>
+                        <ul id="dropdown-events" role="menu" class="dropdown-menu">
+                            <li><a href="eventos.html" role="menuitem" tabindex="-1" data-i18n="nav.events">Eventos y Comunidad</a></li>
+                            <li><a href="calendario.html" role="menuitem" tabindex="-1" data-i18n="nav.calendar">Calendario</a></li>
+                        </ul>
+                    </li>
+                    <li class="active"><a href="mapa.html" data-i18n="nav.plan" class="nav-map-btn"
+                            style="color:var(--color-accent);">Planifica tu visita</a></li>
                 </ul>
             </nav>
             <div class="header-tools">
@@ -49,7 +53,36 @@
         </div>
     </header>
 
-    <main>
+    <main class="page-content">
+        <section class="map-intro">
+            <div class="container map-intro-container">
+                <h1 data-i18n="map.title">BogotÃ¡</h1>
+                <div class="map-description">
+                    <div class="map-desc-block">
+                        <span class="map-desc-icon">ðŸ—ºï¸</span>
+                        <div>
+                            <h3 data-i18n="map.whatTitle">Â¿Para quÃ© sirve este mapa?</h3>
+                            <p data-i18n="map.whatText">...</p>
+                        </div>
+                    </div>
+                    <div class="map-desc-block">
+                        <span class="map-desc-icon">ðŸ–±ï¸</span>
+                        <div>
+                            <h3 data-i18n="map.howTitle">Â¿CÃ³mo usarlo?</h3>
+                            <p data-i18n="map.howText">...</p>
+                        </div>
+                    </div>
+                    <div class="map-desc-block">
+                        <span class="map-desc-icon">ðŸ“</span>
+                        <div>
+                            <h3 data-i18n="map.markersTitle">Los marcadores</h3>
+                            <p data-i18n="map.markersText">...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <div id="city-map" class="full-map"></div>
     </main>
 

@@ -7,6 +7,9 @@ window.i18nResources = {
       "nav.events": "Eventos y Comunidad",
       "nav.calendar": "Calendario",
       "nav.map": "Mapa",
+      "nav.discover": "Descubre Bogotá",
+      "nav.events_section": "Eventos",
+      "nav.plan": "Planifica tu visita",
       "hero.subtitle": "EXPLORA, VIVE, REGRESA",
       "hero.title": "Descubriendo Bogotá: experiencias auténticas que transforman viajes",
       "hero.stats": "+1.9 Millones de visitantes internacionales en 2025 • 56% por cultura y gastronomía • Principal destino urbano de Sudamérica",
@@ -270,7 +273,31 @@ window.i18nResources = {
       "cal.btn": "Sugerir eventos para mis fechas",
       "cal.modal.title": "Eventos Sugeridos",
 
-      "map.tooltip": "Haz clic para ver la ubicación"
+      "map.tooltip": "Haz clic para ver la ubicación",
+      "map.title": "Bogotá",
+      "map.whatTitle": "¿Para qué sirve este mapa?",
+      "map.whatText": "Explora de forma visual todos los puntos de interés turístico de Bogotá: rutas históricas y alternativas, experiencias culturales, restaurantes y gastronomía local, eventos y lugares destacados de la ciudad, todo en un solo lugar.",
+      "map.howTitle": "¿Cómo usarlo?",
+      "map.howText": "Usa la rueda del ratón o los botones + / − para acercar o alejar el mapa. Haz clic sobre cualquier marcador para ver el nombre y la descripción del lugar. En móvil puedes pellizcar la pantalla para hacer zoom y arrastrar para desplazarte.",
+      "map.markersTitle": "Los marcadores",
+      "map.markersText": "Cada marcador representa un lugar recomendado en Bogotá Explora. Al hacer clic sobre uno verás su nombre, categoría y una descripción breve. Desde allí puedes ir directamente a la sección del sitio con toda la información de ese lugar.",
+      
+      "credits.title": "Créditos y fuentes",
+      "credits.subtitle": "Bogotá Explora es un proyecto académico. A continuación se relacionan todos los recursos utilizados en su desarrollo: imágenes, textos, herramientas y tecnologías.",
+      "credits.pexelsText": "Fotografías obtenidas de Pexels, plataforma de imágenes gratuitas bajo licencia Pexels License, que permite uso libre sin atribución obligatoria para proyectos personales y académicos.",
+      "credits.pixabayText": "Fotografías obtenidas de Pixabay, plataforma de imágenes bajo licencia Pixabay License (Content License), de uso libre sin restricciones para proyectos no comerciales y académicos.",
+      "credits.googleText": "Algunas imágenes fueron localizadas mediante Google Images como motor de búsqueda.",
+      "credits.googleWarning": "Pendiente: verificar la licencia original de cada imagen obtenida por esta vía.",
+      "credits.grokText": "Los textos descriptivos, datos turísticos e investigación de contenidos fueron generados con el apoyo de Grok, asistente de inteligencia artificial desarrollado por xAI. Los contenidos fueron revisados y validados por el autor del proyecto.",
+      "credits.fontsText": "El proyecto utiliza dos familias tipográficas importadas desde Google Fonts: Inter (sans-serif, pesos 300–600) como tipografía principal, y Playfair Display (serif, pesos 400–700) para encabezados. Ambas bajo licencia SIL Open Font License.",
+      "credits.mapText": "El mapa interactivo utiliza Leaflet v1.9.4, biblioteca de código abierto bajo licencia BSD-2-Clause. Los datos geográficos y la cartografía base provienen de OpenStreetMap, proyecto colaborativo bajo licencia ODbL (Open Database License).",
+      "credits.visitSite": "Visitar sitio →",
+      "credits.visitOSM": "Visitar OpenStreetMap →",
+      "credits.footerNote": "Este sitio fue desarrollado con fines académicos. Todos los recursos han sido utilizados respetando sus condiciones de uso y licencias correspondientes.",
+      "credits.category.photo": "Fotografía",
+      "credits.category.content": "Textos e investigación",
+      "credits.category.typography": "Tipografía",
+      "credits.category.map": "Mapa interactivo"
     }
   },
   en: {
@@ -281,6 +308,9 @@ window.i18nResources = {
       "nav.events": "Events & Community",
       "nav.calendar": "Calendar",
       "nav.map": "Map",
+      "nav.discover": "Discover Bogotá",
+      "nav.events_section": "Events",
+      "nav.plan": "Plan your visit",
       "hero.subtitle": "EXPLORE, LIVE, RETURN",
       "hero.title": "Discovering Bogotá: authentic experiences that transform journeys",
       "hero.stats": "+1.9 Million international visitors in 2025 • 56% for culture and gastronomy • Main urban destination in South America",
@@ -544,7 +574,31 @@ window.i18nResources = {
       "cal.btn": "Suggest events for my dates",
       "cal.modal.title": "Suggested Events",
 
-      "map.tooltip": "Click to view location"
+      "map.tooltip": "Click to view location",
+      "map.title": "Bogotá",
+      "map.whatTitle": "What is this map for?",
+      "map.whatText": "Visually explore all tourist points of interest in Bogotá: historic and alternative routes, cultural experiences, local restaurants and gastronomy, events and city highlights — all in one place.",
+      "map.howTitle": "How to use it?",
+      "map.howText": "Use the mouse wheel or the + / − buttons to zoom in and out. Click on any marker to see the name and description of the place. On mobile you can pinch to zoom and drag to navigate.",
+      "map.markersTitle": "The markers",
+      "map.markersText": "Each marker represents a recommended place in Bogotá Explora. Clicking on one will show its name, category and a brief description. From there you can go directly to the section of the site with full information about that place.",
+
+      "credits.title": "Credits & sources",
+      "credits.subtitle": "Bogotá Explora is an academic project. Below are all the resources used in its development: images, texts, tools and technologies.",
+      "credits.pexelsText": "Photos obtained from Pexels, a free image platform under the Pexels License, which allows free use without mandatory attribution for personal and academic projects.",
+      "credits.pixabayText": "Photos obtained from Pixabay, an image platform under the Pixabay Content License, free to use without restrictions for non-commercial and academic projects.",
+      "credits.googleText": "Some images were located using Google Images as a search engine.",
+      "credits.googleWarning": "Pending: verify the original license of each image obtained through this source.",
+      "credits.grokText": "Descriptive texts, tourist data and content research were generated with the support of Grok, an artificial intelligence assistant developed by xAI. All content was reviewed and validated by the project author.",
+      "credits.fontsText": "The project uses two font families imported from Google Fonts: Inter (sans-serif, weights 300–600) as the primary typeface, and Playfair Display (serif, weights 400–700) for headings. Both under the SIL Open Font License.",
+      "credits.mapText": "The interactive map uses Leaflet v1.9.4, an open-source library under the BSD-2-Clause license. Geographic data and base cartography come from OpenStreetMap, a collaborative project under the ODbL (Open Database License).",
+      "credits.visitSite": "Visit site →",
+      "credits.visitOSM": "Visit OpenStreetMap →",
+      "credits.footerNote": "This site was developed for academic purposes. All resources have been used in accordance with their respective terms of use and licenses.",
+      "credits.category.photo": "Photography",
+      "credits.category.content": "Content and Research",
+      "credits.category.typography": "Typography",
+      "credits.category.map": "Interactive Map"
     }
   }
 };
